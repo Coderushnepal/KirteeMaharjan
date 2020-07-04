@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Product sans';
+    src: ur("Fonts/ProductSans-Regular.ttf");
+    font-weight: 100px;
+}
 /* 
 banner-heading, logo;
 font-family: Product Sans;
@@ -15,3 +20,113 @@ Footer: background: #FDFFF9;
 
 /* letter-spacing 
 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body {
+    font-family: 'Roboto', sans-serif, Arial, Helvetica;
+    max-width: 1200px;
+    
+}
+h1 {
+    font-family: 'Product sans', sans-serif;
+}
+
+/* header */
+header {
+    width: 100%;
+    font-weight: bold;
+    margin: 0 auto;
+}
+.logo {
+    float: left;
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(90deg, #3AE4DF 0%, #7A88FF 104.29%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+.dropdown, 
+dropbtn {
+    color: black;
+    border: none;
+}
+.dropdown {
+    overflow: hidden;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    display: block;
+    float: none;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+.dropdown-content a:hover {
+    background-color: cornflowerblue;
+}
+.dropdowm:hover, .dropdown-content {
+    display: block;
+}
+
+.nav-container {
+    float: right;
+}
+nav ul {
+    display: none;
+    list-style-type: none;
+    padding: 10px;
+}
+
+nav ul li {
+    float:left;
+    text-align: center;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    display: inline-block;
+    text-transform: uppercase;
+    color: black;
+    padding:10px;
+}
+a.login {
+        
+    background: linear-gradient(90deg, #3AE4DF 0%, #7A88FF 104.29%);
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    text-transform: none;
+}
+
+.clearfix {
+    clear: both;
+    
+}
+
+/* Tablet */
+@media(min-width:768px) {
+    .logo {
+        font-size: 1.5em;
+        padding: 15px;
+    }
+}
+
+/* laptop */
+@media(min-width:992px) {
+    nav ul {
+        display: block;
+    }
+    
+}
