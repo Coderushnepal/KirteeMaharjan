@@ -25,12 +25,18 @@ html,
 body {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 200;
-	font-size: 18px;
+	font-size: 14px;
 }
 body {
 	background: linear-gradient(rgb(253, 103, 103), rgb(250, 227, 16));
 	background: linear-gradient(rgba(255, 45, 45, 0.418), rgba(250, 227, 16, 0.651));
 }
+
+h1 {
+	font-size: 2em;
+	text-align: center;
+}
+
 /*		1.1 Header Banner */
 .header-banner {
 	background-color: yellow;
@@ -85,6 +91,7 @@ nav ul li a {
 }
 
 .clearfix {
+	content: ".";
 	display: table;
 	clear: both;
 }
@@ -98,28 +105,31 @@ nav ul li a {
 .row-1_col-1_img {
 	width: 100%;
 }
+.row-1_col-1_img img {
+	width: 100%;
+	height: auto;
+}
 
 .row-1_col-1_text {
 	position: absolute;
-	width: 40%;
-	top: 15%;
+	width: 60%;
+	top: 18%;
 	left: 5%;
-	padding: 10px;
 	text-align: left;
 	color: black;
 }
 .row-1_col-1_text h1 {
-	font-size: 25px;
 	padding: 5px;
+	text-align: left;
 }
 .row-1_col-1_text p {
-	font-size: 20px;
+	font-size: 1.5em;
 	padding: 5px;
 }
 
 .know-about,
 .benefit {
-	text-align: center;
+	text-align: left;
 	padding: 10px;
 }
 .know-about h1 {
@@ -131,41 +141,49 @@ nav ul li a {
 	width: 100%;
 }
 
-.div-float {
+.div-float-four,
+.div-float-three,
+.div-float-two {
 	float: left;
 	width: 100%;
-	padding: 10px;
+	padding: 10px 0;
 }
 
-div.img-container img {
+.img-container img {
 	width: 100%;
-	height: auto;
+	height: 300px;
 }
 /* 3.Footer*/
 .footer-container {
 	width: 100%;
 	background-color: coral;
-	padding: 10px;
+	padding: 5px;
+	font-size: 12px;
 }
-
+footer > p {
+	font-size: 1.5 em;
+}
 .footer-f1 {
 	float: left;
 	width: 50%;
 	margin-left: 20px;
+	font-weight: normal;
 }
 .footer-f2 {
 	float: right;
-	width: 50%;
+	width: 40%;
 }
 
-.twitter,
-.facebook {
+.footer-f2 ul li {
 	float: right;
-	width: 10%;
+	padding: 5px;
 }
 
 /* Media Queries*/
 @media (min-width: 600px) {
+	body {
+		font-size: 16px;
+	}
 	.header-row-ele1 {
 		display: block;
 		float: left;
@@ -187,20 +205,26 @@ div.img-container img {
 		text-decoration-color: white;
 	}
 
-	.row-1_col-1_text h1 {
-		font-size: 40px;
-		padding: 10px;
-	}
-	.row-1_col-1_text p {
-		font-size: 30px;
-		padding: 5px;
+	.row-1_col-1_text {
+		width: 40%;
 	}
 
-	.div-float {
+	.row-1_col-1_text h1 {
+		font-size: 2.5em;
+	}
+	.row-1_col-1_text p {
+		font-size: 1.5em;
+	}
+
+	.cards-padding {
+		padding: 10px;
+	}
+
+	.div-float-four {
 		width: 50%;
 	}
 
-	div.div-float-three {
+	.div-float-three {
 		width: 33.33%;
 	}
 
@@ -210,12 +234,15 @@ div.img-container img {
 		margin: 0 auto;
 	}
 
-	div.div-float-two {
+	.div-float-two {
 		width: 50%;
 	}
 }
 
 @media (min-width: 992px) {
+	body {
+		font-size: 16px;
+	}
 	.header-row-ele1 {
 		display: block;
 		float: left;
@@ -238,20 +265,27 @@ div.img-container img {
 		text-decoration-color: white;
 	}
 
+	.row-1_col-1_text {
+		width: 40%;
+	}
 	.row-1_col-1_text h1 {
-		font-size: 60px;
-		padding: 20px;
+		font-size: 3em;
 	}
 	.row-1_col-1_text p {
-		font-size: 35px;
+		font-size: 2em;
+	}
+	.row-1_col-1_img img {
+		max-height: 700px;
+	}
+	.cards-padding {
 		padding: 10px;
 	}
 
-	.div-float {
+	.div-float-four {
 		width: 25%;
 	}
 
-	div.div-float-three {
+	.div-float-three {
 		width: 33.33%;
 	}
 
@@ -260,7 +294,7 @@ div.img-container img {
 		width: 60%;
 		margin: 0 auto;
 	}
-	div.div-float-two {
+	.div-float-two {
 		float: left;
 		width: 50%;
 	}
