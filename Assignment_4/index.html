@@ -1,38 +1,144 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width" initial-scale=1.0>
-    <title>
-      Rensponsive Webpage
-    </title>
-    <!--font link-->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet"> 
-    <!--css link-->
-    <link href="style.css" type="text/css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Practise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link  rel="stylesheet" href="tryout.css" type="text/css" media="screen"/>
   </head>
-  <body>
-    <header class="clearfix">
-      <div class="logo">
-        <span class="logo-letter">M</span>
-        <span class="logo-letter">A</span>
-        <span class="logo-letter">Q</span>
-        <span class="logo-letter">s</span>
+  <body>  
+    <header>
+      <div class="container clearfix">
+        <div class="logo left">
+          <a><img src="img/MAQs.svg" alt="logo"></a>
+        </div>
+        <nav class="nav-container right clearfix">
+          <ul class="nav-links clearfix left">
+            <li><a href="#">Home</a></li>
+            <li> <a href="#">About us <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
+            <li> <a href="#">Courses <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
+            <li> <a href="#">Admission <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
+            <li> <a href="#">Feedback</a></li>
+            <li> <a href="#">Gallery</a></li>
+            <li> <a href="#">Contact us</a></li>
+          </ul>
+          <button class="login-btn right">Log in</button>
+        </nav>
+        <div class="hamburger right">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
-      <nav class="nav-container">
-        <ul class="clearfix">
-          <li> <a href="#">Home</a></li>
-          <li class="dropdown">
-            <a href="#">About us</a>
-          </li>
-          <li class="dropdown"><a href="#">Courses</a></li>
-          <li class="dropdown"><a href="#">Admission</a></li>
-          <li><a href="#">Feedback</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#" class="login">Log in</a></li>
-        </ul>
-      </nav>
-
     </header>
+    <!--Banner-->
+    <div class="banner">
+      <div class="container clearfix">
+        <div class="banner-text left">
+          <h1 class="banner-heading"> Website Design Free Course</h1>
+          <p class="text-info">
+            One of the activities of bangladesh Computer Council (BCC) is to develop trained manpower in the field of ICT through ICT training.
+          </p>
+          <button class="btn">Enroll Now</button>
+        </div>
+        <div class="banner-img right">
+          <img src="img/banner-img.png"/>
+        </div>
+      </div>
+    </div>
+    <!--Message From ED-->
+    <div class="container msg-container clearfix">
+      <h2 class="msg-head-mobile ">Message from Executive Director(MAQs)</h2>
+      <div class="img-ED left">
+        <img src="img/Media.png" width="100%">
+      </div>
+      <div class="msg-content right">
+        <h2 class="msg-head-desktop">Message from Executive Director(MAQs)</h2>
+        <p class="msg-content-head sub-heading flt-right">
+          Hi, I am fortunate to have a very strong team of high skilled professionals who support me to carry forward the mission of MAQs.
+        </p>
+        <p class="msg-content-bottom left">
+          We have gone through a serious transformation recently to run our busieness trreating everyone comming to us as a customer. This means we ry to ensure "customer service" in whatever we do and are always keen to see a happy smile in all our customer's face...            
+        </p>
+        <a href="#">Read more</a>
+      </div>
+    </div>
+    <!-- Upcomming training-->
+    <h2 class="training-title container">Upcomming Trainings</h2>
+    <div class="container clearfix">
+      <div class="training-container ">
+        <div class="training-img">
+          <img src="img/oracle.png" alt="python logo" width="100%"/>
+        </div>
+        <div class="training-info">
+          <p class="training-title">
+            Introduction to Training <br> programe on oracle
+          </p>
+          <p class="training-date">
+            Batch No: 23
+            Deadline 12 Mar 2020
+          </p>
+          <p  class="training-fee">
+            Course Fee: Tk.18000.00 
+          </p>
+          <button class="btn sec-btn"><a href="#">Details</a></button>
+        </div>        
+      </div>
+      <div class="training-container">
+        <div class="training-img">
+          <img src="img/python.png" alt="python logo" width="100%"/>
+        </div>
+        <div class="training-info">
+          <p class="training-title">
+            Introduction to Training <br> programe on python
+          </p>
+          <p class="training-date">
+            Batch No: 21
+            Deadline 18 Mar 2020
+          </p>
+          <p class="training-fee">
+            Course Fee: Tk.10000.00 
+          </p>
+          <button class="btn sec-btn "><a href="#">Details</a></button>
+        </div>        
+      </div>
+      <div class="training-container ">
+        <div class="training-img">
+          <img src="img/android.png" alt="python logo" width="100%"/>
+        </div>
+        <div class="training-info">
+          <p class="training-title">
+            Professional Android<br> Application Development
+          </p>
+          <p class="training-date">
+            Batch No: 23
+            Deadline 12 Mar 2020
+          </p>
+          <p class="training-fee">
+            Course Fee: Tk.18000.00 
+          </p><button class="btn sec-btn"><a href="#">Details</a></button>
+        </div>        
+      </div>
+      <div class="container training-container ">
+        <div class="training-img">
+          <img src="img/cisco.png" alt="python logo" width="100%"/>
+        </div>
+        <div class="training-info">
+          <p class="training-title">
+            Introduction to Training <br> programe on cisco
+          </p>
+          <p class="training-date">
+            Batch No: 06
+            Deadline 23 Mar 2020
+          </p>
+          <p class="training-fee">
+            Course Fee: Tk.18000.00 
+          </p>
+          <button class="btn sec-btn"><a href="#">Details</a></button>
+        </div>        
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,309 @@
+@font-face {
+	font-family: 'Product sans regular';
+	src: url('fonts/product-sans/Product\ Sans\ Regular.ttf');
+}
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+}
+h1,
+.logo {
+	font-family: 'Product sans regular', 'Work sans', sans-serif;
+}
+
+.container {
+	width: 100%;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+/*Header*/
+header {
+	margin: 20px 0px;
+}
+.logo {
+	float: left;
+	font-weight: bold;
+	font-size: 26px;
+	line-height: 32px;
+	text-align: left;
+	background: -webkit-linear-gradient(#3ae4df, #7280fc);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: slateblue;
+}
+
+/*Navigatio bar*/
+nav {
+	display: none;
+}
+
+nav ul {
+	padding: 10px 0px;
+}
+nav ul li {
+	float: left;
+}
+nav ul li a {
+	display: block;
+	text-transform: uppercase;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	margin-right: 30px;
+}
+
+.login-btn {
+	background: linear-gradient(90deg, #3ae4df 0%, #7a88ff 104.29%);
+	border-radius: 5px;
+	border-color: #7a88ff;
+	color: white;
+	border: none;
+	padding: 14px 25px;
+}
+
+/*Hamberger menu*/
+.hamburger {
+	display: block;
+}
+.hamburger div {
+	width: 25px;
+	height: 5px;
+	margin: 5px;
+	background-color: black;
+}
+
+/**banner**/
+.banner {
+	background: linear-gradient(90deg, #fffceb 0%, #eafffe 100%);
+	background-size: cover;
+	width: 100%;
+	padding: 60px 0;
+	margin: 0;
+}
+
+.banner-text {
+	width: 100%;
+	padding: 10px;
+	/* background-color: red; */
+	margin: 30px 0px;
+}
+
+.banner-img {
+	width: 100%;
+}
+
+.banner-img img {
+	width: 100%;
+}
+
+h1.banner-heading {
+	font-size: 40px;
+	line-height: 49px;
+}
+
+p.text-info {
+	font-size: 14px;
+	line-height: 140.62%;
+	margin: 25px 0 60px;
+}
+
+.btn {
+	background: #798bfe;
+	border-radius: 5px;
+	border: 1px solid #798bfe;
+	padding: 16px 36px;
+	color: white;
+	font-size: 14px;
+}
+
+/*Message from ED */
+.msg-head-desktop {
+	display: none;
+}
+h2 {
+	font-size: 26px;
+	line-height: 36px;
+}
+h2.msg-head-mobile {
+	display: block;
+	margin: 50px 0px 40px;
+}
+
+p.msg-content-head {
+	font-size: 14px;
+	line-height: 140.62%;
+	font-weight: bold;
+	margin: 26px 0 12px 0;
+}
+
+p.msg-content-bottom {
+	font-size: 12px;
+	line-height: 140.62%;
+	margin-bottom: 20px;
+}
+
+.msg-content a {
+	display: block;
+	margin-bottom: 50px;
+}
+
+.img-ED {
+	width: 100%;
+}
+
+.img-ED img {
+	width: 100%;
+}
+
+/* Floats */
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+/* clearing floats */
+.clearfix:after {
+	content: ".";
+	visibility: hidden;
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+@media (min-width: 768px) {
+	.container {
+		max-width: 768px;
+	}
+
+	/*hidden displays*/
+	nav,
+	.login-btn,
+	h2.msg-head-mobile {
+		display: none;
+	}
+
+	.banner {
+		padding: 0px;
+	}
+
+	.banner-text {
+		width: 40%;
+		margin: 80px 0 88px;
+	}
+
+	.banner-img {
+		width: 60%;
+		margin: 48px 0 20px;
+	}
+
+	/* message*/
+	.msg-container {
+		padding: 64px 0 50px;
+	}
+	h2.msg-head-desktop {
+		display: block;
+	}
+
+	p.msg-content-head {
+		margin: 16px 0 12px;
+	}
+
+	p.msg-content-bottom {
+		margin-bottom: 20px;
+	}
+
+	.msg-content {
+		width: 50%;
+	}
+	.img-ED {
+		width: 40%;
+	}
+
+	.img-ED img {
+		width: 100%;
+	}
+}
+
+@media (min-width: 1200px) {
+	body {
+		font-size: 16px;
+	}
+	.container {
+		max-width: 1140px;
+	}
+	/* features to be displayed/ hidden in laptop*/
+	nav,
+	.login-btn {
+		display: block;
+	}
+
+	.hamburger {
+		display: none;
+	}
+
+	/*banner*/
+	.banner-text {
+		width: 40%;
+		margin: 171px 0;
+	}
+
+	.banner-img {
+		width: 60%;
+		margin-top: 45px 0 0;
+	}
+
+	h1.text-heading {
+		font-size: 56px;
+		line-height: 68px;
+	}
+	p.text-info {
+		font-size: 18px;
+		margin: 25px 0 60px;
+		line-height: 140.62%;
+	}
+
+	.btn {
+		font-size: 18px;
+		padding: 19px 56px;
+	}
+
+	/*message*/
+	.msg-container {
+		padding: 164px 0;
+	}
+
+	.msg-content {
+		margin: 30px 0;
+	}
+
+	h2.msg-head-desktop,
+	h2.training-title {
+		font-size: 32px;
+		line-height: 42px;
+	}
+
+	p.msg-content-head {
+		font-size: 18px;
+		line-height: 25px;
+		margin: 26px 0 13px;
+	}
+
+	p.msg-content-bottom {
+		font-size: 14px;
+		line-height: 20px;
+		margin-bottom: 26;
+	}
+	.msg-content a {
+		font-size: 16px;
+		line-height: 140.62%;
+	}
+}
