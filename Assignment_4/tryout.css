@@ -2,16 +2,32 @@
 	font-family: 'Product sans regular';
 	src: url('fonts/product-sans/Product\ Sans\ Regular.ttf');
 }
+
+/**	
+		Navigate:
+		1.Header
+		2.Navigation Bar
+		3.Hambergur Menu
+		4.Banner
+		5.Message to ED
+		6.Upcomming Trainings
+		7.Footer
+		8.Miscellaneous
+			a.Floats and clearfix
+**/
+
 * {
 	box-sizing: border-box;
 	margin: 0px;
 	padding: 0px;
 	list-style-type: none;
 }
+
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 }
+
 h1,
 .logo {
 	font-family: 'Product sans regular', 'Work sans', sans-serif;
@@ -23,11 +39,12 @@ h1,
 	margin: 0 auto;
 }
 
-/*Header*/
+/* 1.Header */
 header {
 	margin: 20px 0px;
 }
-.logo {
+
+/* .logo {
 	float: left;
 	font-weight: bold;
 	font-size: 26px;
@@ -37,9 +54,9 @@ header {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	color: slateblue;
-}
+} */
 
-/*Navigatio bar*/
+/* 2.Navigatio bar */
 nav {
 	display: none;
 }
@@ -68,7 +85,7 @@ nav ul li a {
 	padding: 14px 25px;
 }
 
-/*Hamberger menu*/
+/* 3.Hamberger menu */
 .hamburger {
 	display: block;
 }
@@ -79,7 +96,7 @@ nav ul li a {
 	background-color: black;
 }
 
-/**banner**/
+/* 4.Banner */
 .banner {
 	background: linear-gradient(90deg, #fffceb 0%, #eafffe 100%);
 	background-size: cover;
@@ -118,12 +135,15 @@ p.text-info {
 	background: #798bfe;
 	border-radius: 5px;
 	border: 1px solid #798bfe;
-	padding: 16px 36px;
+	text-decoration: none;
 	color: white;
+}
+.btn-enroll {
 	font-size: 14px;
+	padding: 16px 36px;
 }
 
-/*Message from ED */
+/* 5.Message from ED */
 .msg-head-desktop {
 	display: none;
 }
@@ -139,7 +159,6 @@ h2.msg-head-mobile {
 p.msg-content-head {
 	font-size: 14px;
 	line-height: 140.62%;
-	font-weight: bold;
 	margin: 26px 0 12px 0;
 }
 
@@ -147,6 +166,7 @@ p.msg-content-bottom {
 	font-size: 12px;
 	line-height: 140.62%;
 	margin-bottom: 20px;
+	color: rgba(0, 0, 0, 0.5);
 }
 
 .msg-content a {
@@ -162,6 +182,109 @@ p.msg-content-bottom {
 	width: 100%;
 }
 
+/* 6.Upcomming trainings */
+.training {
+	padding-top: 22px;
+	padding-bottom: 40;
+	/* default 20px right and left padding in .container*/
+}
+
+.training-container {
+	padding: 20px 0px;
+}
+
+.training-container,
+.taining-img {
+	width: 100%;
+}
+
+.training-title {
+	font-size: 16px;
+	line-height: 28px;
+	margin: 20px 0 16px;
+}
+.training-text {
+	font-size: 12px;
+	line-height: 17px;
+}
+
+.btn-sec {
+	display: block;
+	text-decoration: none;
+	color: white;
+	padding: 10px 15px;
+	width: 120px;
+	height: 40px;
+	text-align: center;
+	margin: 20px 0 0;
+}
+
+/* 7.Footer */
+footer {
+	width: 100%;
+	background-color: #fdfff9;
+	padding: 22px 0 16px;
+}
+
+.footer-bottom-right {
+	display: none;
+}
+
+.dropdown {
+	width: 100%;
+	padding: 10px 0;
+	border-bottom: 1px solid rgba(218, 217, 217, 0.5);
+}
+
+.dropdown-content {
+	display: none;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.dropdown-btn {
+	font-size: 16px;
+	line-height: 28px;
+	margin-bottom: 16px;
+}
+
+.dropdown-btn span {
+	display: inline-block;
+}
+
+footer ul {
+	text-decoration: none;
+}
+
+footer ul li a {
+	font-size: 14px;
+	line-height: 24px;
+	dispaly: inline-block;
+	text-decoration: none;
+	color: black;
+}
+
+.footer-top div:not(.col-6) ul li {
+	padding: 5px 0;
+}
+
+.footer-bottom-right ul li,
+.col-6 ul li {
+	float: left;
+	margin-right: 10px;
+}
+
+.footer-bottom {
+	padding-top: 14px;
+	border-top: 1px solid rgba(218, 217, 217, 0.5);
+}
+
+/* 8.Miscelleneous */
+/* Bold class*/
+.bold {
+	font-weight: bold;
+}
+
 /* Floats */
 .left {
 	float: left;
@@ -170,7 +293,8 @@ p.msg-content-bottom {
 	float: right;
 }
 
-/* clearing floats */
+/* a.Floats and clearfix */
+/* Clearing floats */
 .clearfix:after {
 	content: ".";
 	visibility: hidden;
@@ -179,18 +303,20 @@ p.msg-content-bottom {
 	clear: both;
 }
 
+/* for tablet or screens with width of  768px and above*/
 @media (min-width: 768px) {
 	.container {
 		max-width: 768px;
 	}
 
-	/*hidden displays*/
+	/* b.Display hidden/displayed */
 	nav,
 	.login-btn,
 	h2.msg-head-mobile {
 		display: none;
 	}
 
+	/* 4.Banner */
 	.banner {
 		padding: 0px;
 	}
@@ -205,7 +331,7 @@ p.msg-content-bottom {
 		margin: 48px 0 20px;
 	}
 
-	/* message*/
+	/* 5.Message from ED*/
 	.msg-container {
 		padding: 64px 0 50px;
 	}
@@ -231,8 +357,70 @@ p.msg-content-bottom {
 	.img-ED img {
 		width: 100%;
 	}
+
+	/* 6.Upcomming trainings */
+
+	h2.upcoming-training {
+		text-align: center;
+	}
+
+	.wrapper-left {
+		float: left;
+	}
+
+	.wrapper-right {
+		float: right;
+	}
+
+	.wrapper-left,
+	.wrapper-right {
+		width: 100%;
+	}
+
+	.training-container {
+		width: 49%;
+	}
+
+	/* 7.Footer */
+	footer {
+		padding: 40px 0 16px;
+	}
+
+	.col-1 {
+		width: 33%;
+	}
+
+	.dropdown {
+		width: 33%;
+		border: none;
+	}
+
+	.dropdown-btn {
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 132.74%;
+	}
+
+	.dropdown-content {
+		display: block;
+	}
+
+	footer ul li a {
+		font-size: 14px;
+		line-height: 146.29%;
+		display: block;
+	}
+
+	span.right {
+		display: none;
+	}
+
+	.footer-bottom {
+		margin-top: 25px;
+	}
 }
 
+/* for desktop or screens with width of 1200px and above*/
 @media (min-width: 1200px) {
 	body {
 		font-size: 16px;
@@ -240,7 +428,8 @@ p.msg-content-bottom {
 	.container {
 		max-width: 1140px;
 	}
-	/* features to be displayed/ hidden in laptop*/
+
+	/* b.Display hidden/displayed */
 	nav,
 	.login-btn {
 		display: block;
@@ -250,7 +439,7 @@ p.msg-content-bottom {
 		display: none;
 	}
 
-	/*banner*/
+	/* 4.Banner */
 	.banner-text {
 		width: 40%;
 		margin: 171px 0;
@@ -273,10 +462,10 @@ p.msg-content-bottom {
 
 	.btn {
 		font-size: 18px;
-		padding: 19px 56px;
+		line-height: 21px;
 	}
 
-	/*message*/
+	/* 5.Message */
 	.msg-container {
 		padding: 164px 0;
 	}
@@ -285,8 +474,7 @@ p.msg-content-bottom {
 		margin: 30px 0;
 	}
 
-	h2.msg-head-desktop,
-	h2.training-title {
+	h2 {
 		font-size: 32px;
 		line-height: 42px;
 	}
@@ -306,4 +494,39 @@ p.msg-content-bottom {
 		font-size: 16px;
 		line-height: 140.62%;
 	}
+
+	/* 6.Upcomming training */
+	.training {
+		padding: 45px 0 80px;
+	}
+	.btn-sec {
+		font-size: 14px;
+		line-height: 16px;
+		padding: 12px 15px;
+	}
+
+	.wrapper-left,
+	.wrapper-right {
+		width: 50%;
+	}
+
+	.wrapper-left {
+		padding-right: 10px;
+	}
+	.wrapper-left {
+		padding-left: 10px;
+	}
+
+	/* 7. Footer */
+	.footer-top .col-6 {
+		display: none;
+	}
+	.footer-bottom-right {
+		display: block;
+	}
+	.dropdown {
+		width: 20%;
+	}
 }
+
+/* --bottom */
