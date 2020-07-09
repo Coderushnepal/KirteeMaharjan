@@ -6,14 +6,19 @@
     <title>Webpage Practise</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link  rel="stylesheet" href="tryout.css" type="text/css" media="screen"/>
+    <link  rel="stylesheet" href="style.css" type="text/css" media="screen"/>
   </head>
   <body>  
     <!-- Header -->
     <header>
-      <div class="container clearfix">
+      <div class="container header-container clearfix">
         <div class="logo left">
           <a href="#"><img src="img/MAQs.png" alt="logo"></a>
+        </div>
+        <div class="hamburger right">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
         <nav class="nav-container right clearfix">
           <ul class="nav-links clearfix left">
@@ -24,14 +29,10 @@
             <li> <a href="#">Feedback</a></li>
             <li> <a href="#">Gallery</a></li>
             <li> <a href="#">Contact us</a></li>
+            <li class="login-link"><a hred="#">Login</a></li>
           </ul>
-          <button class="login-btn right">Log in</button>
+          <button class="login-btn right"><a>Log in</a></button>
         </nav>
-        <div class="hamburger right">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
       </div>
     </header>
 
@@ -194,20 +195,20 @@
        <div class="col-4 dropdown left">
         <p class="dropdown-btn clearfix">
           <span class="left">Resources </span>
-          <span class="right angle-down-icon"> <i class="fa fa-angle-down" aria-hidden="true"></i></span></p>
+          <span class="right angle-down-icon"> <i class="fa fa-angle-down" aria-hidden="true"></i></span>
         </p>
         <ul class="dropdown-content" id="resources">
-            <li><a href="#">Download MAQs</li></a>
-            <li><a href="#">Events</li></a>
-            <li><a href="#">Tech</li></a>
-            <li><a href="#">Partners</li></a>
-            <li><a href="#"> Subscribe</li></a>
+            <li><a href="#">Download MAQs</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Tech</a></li>
+            <li><a href="#">Partners</a></li>
+            <li><a href="#">Subscribe</a></li>
           </ul>
         </div>
         <div class="col-5 dropdown left">
           <p class="dropdown-btn clearfix">
-            <span class="left">Support </span>
-            <span class="right angle-down-icon"> <i class="fa fa-angle-down" aria-hidden="true"></i></span></p>
+            <span class="left">Support</span>
+            <span class="right angle-down-icon"> <i class="fa fa-angle-down" aria-hidden="true"></i></span>
           </p>
           <ul class="dropdown-content" id="support">
               <li><a href="#">Contact</a></li>

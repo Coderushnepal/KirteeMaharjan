@@ -25,11 +25,9 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	font-size: 14px;
 }
 
-h1,
-.logo {
+h1 {
 	font-family: 'Product sans regular', 'Work sans', sans-serif;
 }
 
@@ -41,7 +39,12 @@ h1,
 
 /* 1.Header */
 header {
-	margin: 20px 0px;
+	position: relative;
+	margin-top: 20px;
+}
+
+.header-container {
+	height: 60px;
 }
 
 /* .logo {
@@ -55,18 +58,33 @@ header {
 	-webkit-text-fill-color: transparent;
 	color: slateblue;
 } */
+.logo {
+	padding: 10px 0;
+}
 
 /* 2.Navigatio bar */
+
 nav {
 	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+	background-color: rgb(28, 167, 189);
+	opacity: 95%;
 }
 
 nav ul {
-	padding: 10px 0px;
+	padding: 10px 0;
+	width: 100%;
+	text-align: center;
 }
+
 nav ul li {
-	float: left;
+	padding: 20px 0;
 }
+
 nav ul li a {
 	display: block;
 	text-transform: uppercase;
@@ -76,7 +94,14 @@ nav ul li a {
 	margin-right: 30px;
 }
 
+.hamburger:hover + nav,
+nav:hover,
+nav ul:hover + nav {
+	display: block;
+}
+
 .login-btn {
+	display: none;
 	background: linear-gradient(90deg, #3ae4df 0%, #7a88ff 104.29%);
 	border-radius: 5px;
 	border-color: #7a88ff;
@@ -88,7 +113,10 @@ nav ul li a {
 /* 3.Hamberger menu */
 .hamburger {
 	display: block;
+	cursor: pointer;
+	z-index: -2;
 }
+
 .hamburger div {
 	width: 25px;
 	height: 5px;
@@ -137,7 +165,9 @@ p.text-info {
 	border: 1px solid #798bfe;
 	text-decoration: none;
 	color: white;
+	cursor: pointer;
 }
+
 .btn-enroll {
 	font-size: 14px;
 	padding: 16px 36px;
@@ -147,10 +177,12 @@ p.text-info {
 .msg-head-desktop {
 	display: none;
 }
+
 h2 {
 	font-size: 26px;
 	line-height: 36px;
 }
+
 h2.msg-head-mobile {
 	display: block;
 	margin: 50px 0px 40px;
@@ -203,6 +235,7 @@ p.msg-content-bottom {
 	line-height: 28px;
 	margin: 20px 0 16px;
 }
+
 .training-text {
 	font-size: 12px;
 	line-height: 17px;
@@ -226,57 +259,71 @@ footer {
 	padding: 22px 0 16px;
 }
 
-.footer-bottom-right {
-	display: none;
-}
-
 .dropdown {
+	position: relative;
 	width: 100%;
-	padding: 10px 0;
+	margin: 10px 0;
 	border-bottom: 1px solid rgba(218, 217, 217, 0.5);
 }
 
 .dropdown-content {
 	display: none;
-	font-size: 14px;
-	line-height: 24px;
+	font-size: 12px;
+	/* line-height: 24px; */
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	right: 50%;
+	padding: 10px;
+	background-color: rgb(28, 167, 189);
+	opacity: 95%;
+	z-index: 1;
+}
+
+.dropdown-btn:hover + .dropdown-content,
+.dropdown-content:hover {
+	display: block;
 }
 
 .dropdown-btn {
 	font-size: 16px;
 	line-height: 28px;
-	margin-bottom: 16px;
 }
 
 .dropdown-btn span {
 	display: inline-block;
 }
 
-footer ul {
-	text-decoration: none;
+footer div:not(.col-6) ul li {
+	padding: 10px 0;
 }
 
-footer ul li a {
+footer div ul li a {
 	font-size: 14px;
 	line-height: 24px;
-	dispaly: inline-block;
+	display: inline-block;
 	text-decoration: none;
 	color: black;
 }
 
-.footer-top div:not(.col-6) ul li {
-	padding: 5px 0;
-}
-
-.footer-bottom-right ul li,
-.col-6 ul li {
+.col-6 ul li,
+.footer-bottom-right ul li {
 	float: left;
 	margin-right: 10px;
 }
 
-.footer-bottom {
-	padding-top: 14px;
-	border-top: 1px solid rgba(218, 217, 217, 0.5);
+.col-6 ul li a,
+.footer-bottom-right ul li a {
+	line-height: 0;
+}
+
+.footer-bottom-left {
+	font-size: 10px;
+	line-height: 28px;
+}
+
+.footer-bottom-right {
+	display: none;
 }
 
 /* 8.Miscelleneous */
@@ -298,7 +345,7 @@ footer ul li a {
 .clearfix:after {
 	content: ".";
 	visibility: hidden;
-	display: block;
+	display: table;
 	height: 0;
 	clear: both;
 }
@@ -318,17 +365,18 @@ footer ul li a {
 
 	/* 4.Banner */
 	.banner {
-		padding: 0px;
+		padding: 45px 0px;
 	}
 
 	.banner-text {
 		width: 40%;
-		margin: 80px 0 88px;
+		padding: 40px 0px 0px;
+		margin: 0px;
 	}
 
 	.banner-img {
 		width: 60%;
-		margin: 48px 0 20px;
+		margin: 0;
 	}
 
 	/* 5.Message from ED*/
@@ -399,10 +447,14 @@ footer ul li a {
 		font-weight: bold;
 		font-size: 18px;
 		line-height: 132.74%;
+		margin-bottom: 16px;
 	}
 
 	.dropdown-content {
+		position: unset;
+		padding: 0px;
 		display: block;
+		background-color: unset;
 	}
 
 	footer ul li a {
@@ -411,12 +463,18 @@ footer ul li a {
 		display: block;
 	}
 
-	span.right {
+	span.angle-down-icon {
 		display: none;
 	}
 
 	.footer-bottom {
-		margin-top: 25px;
+		padding-top: 14px;
+		border-top: 1px solid rgba(218, 217, 217, 0.5);
+	}
+
+	.footer-bottom-left {
+		font-size: 12px;
+		line-height: 28px;
 	}
 }
 
@@ -430,19 +488,41 @@ footer ul li a {
 	}
 
 	/* b.Display hidden/displayed */
-	nav,
 	.login-btn {
 		display: block;
+	}
+
+	li.login-link {
+		display: none;
 	}
 
 	.hamburger {
 		display: none;
 	}
 
+	nav {
+		position: unset;
+		display: block;
+		width: 80%;
+		background-color: unset;
+		opacity: 100%;
+	}
+
+	nav ul {
+		width: 90%;
+	}
+
+	nav ul li {
+		float: left;
+		padding: unset;
+	}
+
 	/* 4.Banner */
+
 	.banner-text {
 		width: 40%;
-		margin: 171px 0;
+		padding: 60px 0;
+		margin: 0px;
 	}
 
 	.banner-img {
@@ -454,6 +534,7 @@ footer ul li a {
 		font-size: 56px;
 		line-height: 68px;
 	}
+
 	p.text-info {
 		font-size: 18px;
 		margin: 25px 0 60px;
@@ -490,6 +571,7 @@ footer ul li a {
 		line-height: 20px;
 		margin-bottom: 26;
 	}
+
 	.msg-content a {
 		font-size: 16px;
 		line-height: 140.62%;
@@ -499,6 +581,7 @@ footer ul li a {
 	.training {
 		padding: 45px 0 80px;
 	}
+
 	.btn-sec {
 		font-size: 14px;
 		line-height: 16px;
@@ -507,14 +590,7 @@ footer ul li a {
 
 	.wrapper-left,
 	.wrapper-right {
-		width: 50%;
-	}
-
-	.wrapper-left {
-		padding-right: 10px;
-	}
-	.wrapper-left {
-		padding-left: 10px;
+		width: 49.5%;
 	}
 
 	/* 7. Footer */
