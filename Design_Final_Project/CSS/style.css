@@ -20,6 +20,7 @@ html {
 }
 
 h1,
+h2,
 p {
 	text-align: center;
 }
@@ -28,6 +29,7 @@ p {
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 16px;
+	/* background-color: red; */
 }
 
 .left {
@@ -74,7 +76,7 @@ p {
 } */
 
 /* Header */
-header {
+.features-container {
 	padding: 20px 0;
 }
 
@@ -116,17 +118,16 @@ ul li a {
 
 /* Intro */
 .banner-img {
-	min-height: 60vh;
-	position: relative;
+	min-height: 65vh;
 	background-image: url(../img/banner.png), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0e0e0e 66.15%);
 	background-position: top 30px center, bottom 0px right 0px;
 	background-repeat: no-repeat, no-repeat;
 	background-size: contain;
 }
 
-.intro-container {
+.intro-container,
+.features-container {
 	padding: 30px 0 10px;
-	background-color: red;
 }
 
 .headline {
@@ -146,7 +147,7 @@ h1.headline {
 	font-size: 32px;
 }
 
-p.headline {
+p.sub-headline {
 	font-size: 14px;
 	padding: 14px 0 40px;
 }
@@ -155,6 +156,49 @@ p.headline {
 	width: 212px;
 	margin: 0 auto;
 	text-align: center;
+}
+
+/** features **/
+h2.headline {
+	font-size: 24px;
+	line-height: 28.5px;
+}
+
+p.ft-sub-head {
+	padding-top: 11px;
+	padding-bottom: 38px;
+}
+
+.features-content-wrapper,
+.ft-content-left,
+.ft-content-left img {
+	width: 100%;
+	float: none;
+}
+
+.ft-content-right {
+	float: none;
+	width: 60%;
+	margin: 0 auto;
+}
+
+.ft-card {
+	margin-top: 45px;
+	padding: 5px;
+}
+
+span.ft-head-title {
+	display: block;
+	font-size: 16px;
+	line-height: 24px;
+	margin-left: 10px;
+}
+
+p.ft-card-bottom {
+	font-size: 14px;
+	line-height: 21.5px;
+	margin-top: 21px;
+	text-align: left;
 }
 
 @media (min-width: 768px) {
@@ -170,7 +214,8 @@ p.headline {
 
 	p.sub-headline {
 		font-size: 18px;
-		padding: 37px 0 50px;
+		padding-top: 37px;
+		padding-bottom: 50px;
 	}
 
 	.btn-primary {
@@ -181,6 +226,42 @@ p.headline {
 
 	.intro-btn-wrapper {
 		width: 300px;
+	}
+
+	/** features **/
+	h2.headline {
+		font-size: 38px;
+		line-height: 45.22px;
+	}
+
+	span.ft-head-title {
+		font-size: 20px;
+		line-height: 30px;
+	}
+
+	p.ft-card-bottom {
+		font-size: 16px;
+		line-height: 24px;
+	}
+
+	.features-content-wrapper {
+		width: 93%;
+		margin: 0 auto;
+	}
+
+	.ft-content-right {
+		width: 90%;
+		padding: 20px 10px;
+	}
+
+	.ft-card {
+		margin: 45px 0 0;
+		float: left;
+		width: 48%;
+	}
+
+	.card-1 {
+		margin-right: 20px;
 	}
 }
 
@@ -201,13 +282,16 @@ p.headline {
 
 	nav {
 		width: 65%;
-		padding: 11px 0;
 	}
 
 	nav ul li {
 		float: left;
 		padding: 5px;
 		margin-right: 50px;
+	}
+
+	nav ul {
+		margin: 15px 0 10px;
 	}
 
 	nav ul li:nth-last-child(2) {
@@ -238,6 +322,37 @@ p.headline {
 	p.sub-headline {
 		font-size: 20px;
 		line-height: 30px;
-		padding: 37px 0 95px;
+		padding-top: 37px;
+		padding-bottom: 95px;
+	}
+
+	/** features **/
+	h2.headline {
+		font-size: 52px;
+		line-height: 62.5px;
+	}
+
+	.ft-content-left {
+		float: left;
+		width: 69%;
+	}
+
+	.ft-content-right {
+		margin-top: 50px;
+		padding: 10px;
+		float: right;
+		width: 30%;
+	}
+
+	.ft-card {
+		float: none;
+		width: 100%;
+		margin: 45px 0 0;
+	}
+
+	span.ft-head-title {
+		display: block;
+		font-size: 20px;
+		line-height: 30px;
 	}
 }
