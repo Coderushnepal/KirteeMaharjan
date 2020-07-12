@@ -40,6 +40,19 @@ function toArray(obj) {
 	return arr;
 }
 
+// Q.4 solution
+function identicalFilter(arr) {
+	let identical = [];
+	let k = 0;
+	for (i = 0; i < arr.length; i++) {
+		let repeatation = new Set(arr[i]);
+		if (repeatation.size === 1) {
+			identical[k++] = arr[i];
+		}
+	}
+	return identical;
+}
+
 // Q.1 Output
 console.log(' Answer-1 : \n\n');
 console.log(ans1(7));
@@ -55,3 +68,12 @@ console.log(' \n\nAnswer-3 : \n\n');
 console.log(toArray({ a: 1, b: 2 }));
 console.log(toArray({ shrimp: 15, tots: 12 }));
 console.log(toArray({}));
+
+// Q.4 Output
+console.log(' \n\nAnswer-4 : \n\n');
+console.log(identicalFilter([ '88', '999', '22', '545', '133' ]));
+console.log(identicalFilter([ 'xxxxo', 'oxo', 'xox', 'ooxxoo', 'oxo' ]));
+
+// // Q.5 Output
+// console.log(' \n\nAnswer-5 : \n\n');
+// console.log(keysAndValues({ a: 'Apple', b: 'Microsoft', c: 'Google' }));
