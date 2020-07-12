@@ -53,6 +53,17 @@ function identicalFilter(arr) {
 	return identical;
 }
 
+// Q.5 solution
+function keysAndValues(obj) {
+	let keys = Object.keys(obj);
+	keys.sort();
+	let values = [];
+	for (i = 0; i < keys.length; i++) {
+		values[i] = obj[keys[i]];
+	}
+	return [ keys, values ];
+}
+
 // Q.1 Output
 console.log(' Answer-1 : \n\n');
 console.log(ans1(7));
@@ -74,6 +85,8 @@ console.log(' \n\nAnswer-4 : \n\n');
 console.log(identicalFilter([ '88', '999', '22', '545', '133' ]));
 console.log(identicalFilter([ 'xxxxo', 'oxo', 'xox', 'ooxxoo', 'oxo' ]));
 
-// // Q.5 Output
-// console.log(' \n\nAnswer-5 : \n\n');
-// console.log(keysAndValues({ a: 'Apple', b: 'Microsoft', c: 'Google' }));
+// Q.5 Output
+console.log(' \n\nAnswer-5 : \n\n');
+console.log(keysAndValues({ b: 'Microsoft', a: 'Apple', c: 'Google' }));
+console.log(keysAndValues({ a: 1, b: 2, c: 3 }));
+console.log(keysAndValues({ key1: true, key2: false, key3: undefined }));
