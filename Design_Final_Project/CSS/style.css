@@ -122,25 +122,10 @@ nav ul li a {
 	display: block;
 }
 
-/* .hamburger:hover div.bar3 {
-	display: none;
-}
-
-.hamburger:hover div.bar1 {
-	transform: rotate(45deg);
-}
-
-.hamburger:hover div.bar3 {
-	transform: rotate(135deg);
-}  */
-
 /*login btn*/
 
 .btn--login {
 	display: none;
-	padding: 5px 40px;
-	font-size: 17px;
-	line-height: 25px;
 }
 
 .hamburger {
@@ -196,9 +181,16 @@ p.sub-headline {
 }
 
 .intro-btn-wrapper {
-	width: 220px;
-	margin: 0 auto;
+	width: 100%;
 	text-align: center;
+}
+
+div.intro-btn-wrapper button {
+	display: inline;
+}
+
+button.intro-btn-1 {
+	margin-right: 15px;
 }
 
 /** features **/
@@ -292,13 +284,13 @@ div.content-img {
 
 /* Partners */
 .partners-logo-container {
-	width: 95%;
+	width: 100%;
 	margin: 0 auto;
 }
 
 .partners-logo {
 	float: left;
-	width: 33.33%;
+	width: 33%;
 	text-align: center;
 	margin-top: 20px;
 }
@@ -352,6 +344,72 @@ div.profile-img a img {
 	width: unset;
 }
 
+/*Footer*/
+
+.footer-up-left,
+.footer-down-right {
+	width: 100%;
+	padding: 20px;
+}
+span.up-arrow {
+	display: none;
+}
+
+.dropdown-btn {
+	position: relative;
+	font-size: 20px;
+	padding: 20px 0;
+	/* background-color: red; */
+	border-bottom: 1px solid rgb(71, 19, 19);
+}
+
+.dropdown-content {
+	display: none;
+}
+
+.dropdown-btn:hover + .dropdown-content {
+	display: block;
+}
+
+footer ul li a {
+	font-size: 16px;
+	color: white;
+}
+
+footer div.footer-up-left ul li {
+	padding: 20px 0 20px 10px;
+}
+
+/*footer-down-rigt*/
+div.address {
+	margin: 10px 0;
+	padding: 10px 0;
+}
+div.address div {
+	margin-bottom: 10px;
+}
+
+footer img {
+	width: unset;
+}
+
+span.contact {
+	display: inline-block;
+	margin-left: 10px;
+	font-size: 12px;
+}
+div.footer-down-right ul {
+	margin-top: 20px;
+}
+ul.social-media li {
+	vertical-align: middle;
+	float: left;
+	padding: 10px 20px;
+}
+ul.social-media li:first-child {
+	padding-left: 0px;
+}
+
 @media (min-width: 768px) {
 	.container {
 		max-width: 768px;
@@ -379,10 +437,6 @@ div.profile-img a img {
 		font-size: 17px;
 		line-height: 25px;
 		padding: 15px 25px;
-	}
-
-	.intro-btn-wrapper {
-		width: 300px;
 	}
 
 	/** features **/
@@ -430,15 +484,15 @@ div.profile-img a img {
 	}
 
 	/* contents */
-	.contents-content-container {
-		width: 100%;
-	}
-
 	.card-white {
 		width: 48%;
 	}
 
 	/* partners */
+	.partners-logo-container {
+		width: 90%;
+	}
+
 	.partners-logo {
 		width: 16%;
 	}
@@ -451,6 +505,55 @@ div.profile-img a img {
 
 	.profile-container {
 		font-size: 16px;
+	}
+
+	/* Footer */
+	.down-arrow,
+	.up-arrow {
+		display: none;
+	}
+
+	.footer-up-left,
+	.footer-down-right {
+		padding: 20px 0;
+	}
+	.footer-up-left {
+		width: 80%;
+		margin: auto;
+	}
+	.dropdown {
+		float: left;
+		width: 30%;
+		margin-left: 15px;
+	}
+	.dropdown-btn {
+		border: none;
+	}
+
+	.dropdown-content {
+		display: block;
+		padding: 10px 0;
+	}
+
+	footer div.footer-up-left ul li {
+		padding: 10px 0;
+	}
+
+	/*footer-down-rigt*/
+	div.address {
+		float: left;
+		width: 70%;
+	}
+	ul.social-media {
+		float: right;
+		width: 30%;
+	}
+	span.contact {
+		font-size: 14px;
+	}
+
+	div.footer-down-right ul {
+		margin-top: 20px;
 	}
 }
 
@@ -466,6 +569,8 @@ div.profile-img a img {
 
 	.btn--login {
 		display: block;
+		padding: 5px 30px;
+		margin: 15px 0 10px;
 	}
 
 	.nav-container {
@@ -551,5 +656,27 @@ div.profile-img a img {
 		display: block;
 		font-size: 20px;
 		line-height: 30px;
+	}
+
+	/*contents */
+	.partners-logo-container {
+		width: 80%;
+	}
+
+	/* footer */
+	.footer-up-left {
+		float: left;
+		width: 60%;
+	}
+	.footer-down-right {
+		float: right;
+		width: 40%;
+	}
+
+	div.address,
+	ul.social-media {
+		float: none;
+		width: 100%;
+		margin: 10px 0;
 	}
 }

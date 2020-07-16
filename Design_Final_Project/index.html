@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="CSS/style.css" type="text/css" rel="stylesheet">
   </head>
   <body>
@@ -36,9 +37,9 @@
         <p class="sub-headline" id="intro-subheadline"> Most calendars are designed for teams. Slate is designed for 
           freelancers who want a simple way to plan their schedule. 
         </p>
-        <div class="intro-btn-wrapper clearfix">
-          <button class="btn-primary btn--blue left intro-btn-1">Try For Free</button>
-          <button class=" btn-primary right intro-btn-2" >Learn More</button>
+        <div class="intro-btn-wrapper ">
+          <button class="btn-primary btn--blue  intro-btn-1">Try For Free</button>
+          <button class=" btn-primary  intro-btn-2">Learn More</button>
         </div>
     </div>
     <div class="banner-img">
@@ -241,25 +242,75 @@
     </div>
 
     <!-- Footer -->
-    <footer class="container">
-      <div class="footer-up-left">
-        <div class="footer-list-container dropdown">
-          <div class="footer-list-head dropdown-btn">
-            <span class="footer-list-header">FingerTip</span>
-            <span><i class="fa fa angle-down"></i></span>
+    <footer class="container clearfix">
+     <div class="footer-up-left clearfix">
+       <div class="dropdown">
+          <div class="dropdown-btn clearfix">
+           <span class="left"> Fingertipe</span>
+           <div class="right">
+            <span class="down-arrow"><i class="fa fa-angle-down" style='color: white;'></i></span>
+            <span class="up-arrow"><i class="fa fa-angle-up" ></i></span>
           </div>
-          <ul class="footer-list-content dropdown-content">
-            <li><a></a></li>
-            <li><a></a></li>
-            <li><a></a></li>
-            <li><a></a></li>
+          </div>
+          <ul class="dropdown-content">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Examples</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Updates</a></li>
           </ul>
-        </div>
-        
-      </div>
-      <div>
+       </div>
 
-      </div class="footer-down-right">
+       <div class="dropdown">
+        <div class="dropdown-btn clearfix">
+          <span class="left"> Resources</span>
+          <div class="right">
+            <span class="down-arrow"><i class="fa fa-angle-down" style='color: white;'></i></span>
+            <span class="up-arrow"><i class="fa fa-angle-up" ></i></span>
+          </div>
+        </div>
+         <ul class="dropdown-content">
+           <li><a href="#">Home</li>
+           <li><a href="#">Examples</a></li>
+           <li><a href="#">Pricing</a></li>
+           <li><a href="#">Upddates</a></li>
+         </ul>
+      </div>
+
+      <div class="dropdown">
+        <div class="dropdown-btn clearfix">
+          <span class="left"> About </span>
+          <div class="right angle-icons">
+            <span class="down-arrow"><i class="fa fa-angle-down" style='color: white;'></i></span>
+            <span class="up-arrow"><i class="fa fa-angle-up" ></i></span>
+          </div>
+         </div>
+         <ul class="dropdown-content">
+          <li><a href="#">Home</li>
+            <li><a href="#">Examples</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Upddates</a></li>
+         </ul>
+      </div>
+    </div>
+
+      <div class="footer-down-right clearfix">
+        <div class="address">
+          <div>
+            <img src="img/bx_bx-map.png" alt="location-icon">
+            <span class="contact">7480 Mockingbird Hill undefined </span>
+          </div>
+          <div>
+            <img src="img/ic_baseline-phone-android.png" alt="cell-phone-icon">
+            <span class="contact">(239) 555-0108</span>
+          </div>
+        </div>
+        <ul class="social-media clearfix">
+          <li><a href="#"><img src="img/icons/Vector.png" alt="twitter-icon"> </a></li>
+          <li><a href="#"><img src="img/icons/Vector-1.png" alt="facebook-icon"> </a></li>
+          <li><a href="#"><img src="img/icons/Vector-2.png" alt="linkedin-icon"> </a></li>
+        </ul>     
+      </div>
+      
     </footer>
 
   </body>
