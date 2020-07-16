@@ -23,8 +23,8 @@ var result1 = function(array) {
 		var obj = {};
 		var name = value.split(' ');
 		obj['id'] = index + 1;
-		obj['firstName'] = name[0];
-		obj['lastName'] = name[1];
+		obj['firstName'] = name[0].charAt(0).toUpperCase() + name[0].slice(1);
+		obj['lastName'] = name[1].charAt(0).toUpperCase() + name[0].slice(1);
 		// console.log(obj);
 		return obj;
 	});
