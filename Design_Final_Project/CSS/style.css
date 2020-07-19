@@ -116,6 +116,10 @@ nav ul li a {
 	display: inline-block;
 	font-size: 20px;
 }
+nav ul li:hover {
+	padding: 20px 0;
+	background-color: rgb(228, 114, 114);
+}
 
 .hamburger:hover + .nav-container,
 .nav-container:hover {
@@ -298,6 +302,9 @@ div.content-img {
 .partners-logo img {
 	width: unset;
 }
+#ibm-logo img {
+	width: 50%;
+}
 
 .partners-btn {
 	display: block;
@@ -327,6 +334,7 @@ div.content-img {
 	font-size: 14px;
 	line-height: 150%;
 }
+
 .profile {
 	margin-bottom: 20px;
 }
@@ -497,6 +505,10 @@ ul.social-media li:first-child {
 		width: 16%;
 	}
 
+	#ibm-logo img {
+		width: unset;
+	}
+
 	/* testimonials */
 	.testimonial-left,
 	.testimonial-right {
@@ -515,16 +527,20 @@ ul.social-media li:first-child {
 
 	.footer-up-left,
 	.footer-down-right {
+		width: 100%;
 		padding: 20px 0;
 	}
-	.footer-up-left {
-		width: 80%;
-		margin: auto;
-	}
+
+	/* .footer-up-left {
+		
+	} */
 	.dropdown {
 		float: left;
 		width: 30%;
 		margin-left: 15px;
+	}
+	.dropdown:first-child {
+		margin-left: 0px;
 	}
 	.dropdown-btn {
 		border: none;
@@ -560,6 +576,14 @@ ul.social-media li:first-child {
 @media screen and (min-width: 1200px) {
 	.container {
 		max-width: 1097px;
+		padding: 100px 0px 60px;
+	}
+	.header-wrap {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.intro-wrapper {
+		padding: 60px 0;
 	}
 
 	.hamburger,
@@ -603,6 +627,10 @@ ul.social-media li:first-child {
 		font-size: 17px;
 		line-height: 25px;
 		letter-spacing: 0.2px;
+	}
+	nav ul li:hover {
+		padding: unset;
+		background-color: unset;
 	}
 
 	/** Intro section **/
@@ -670,7 +698,7 @@ ul.social-media li:first-child {
 	}
 	.footer-down-right {
 		float: right;
-		width: 40%;
+		width: 30%;
 	}
 
 	div.address,

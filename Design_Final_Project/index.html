@@ -107,7 +107,7 @@
         We focus on ergonomics and meeting you where you work. It's only a keystroke away. 
       </p>
       <div class="contents-content-container clearfix">
-        <div class="card-white left">
+        <div class="card-white left" id="cardLeft">
           <h3 class="headline"> Work </h3>
           <p class="sub-headline card-wh-p" id="card-1-headline"> 
             Ever wondered if you're too reliant on a client for work? Slate helps you identify.
@@ -117,7 +117,7 @@
             <img src="./img/content-img-1.png" alt="laptop showing work feature">
           </div>
         </div>
-        <div class="card-white right"> 
+        <div class="card-white right" id="cardRight"> 
           <h3 class="headline card-2-headline"> Design with real data </h3>
           <p class="sub-headline card-wh-p" id="card-2-subheadline"> 
             Ever wondered if you're too reliant on a client for work? Slate helps you identify .
@@ -151,7 +151,7 @@
         <div class="partners-logo">
           <a href="#"><img src="./img/Group-4.png" alt="ios app store"/></a>
         </div>
-        <div class="partners-logo">
+        <div class="partners-logo" id="ibm-logo">
           <a href="#"> <img src="./img/Group-5.png" alt="ios app store"/></a>
         </div>
       </div>
@@ -240,6 +240,7 @@
          </div>
        </div>
     </div>
+    </div>
 
     <!-- Footer -->
     <footer class="container clearfix">
@@ -314,4 +315,18 @@
     </footer>
 
   </body>
+  <script>
+
+    var cardL = document.getElementById("cardLeft")
+    var cardR = document.getElementById("cardRight")
+    lenL = cardL.clientHeight;
+    lenR = cardR.clientHeight;
+    console.log(lenL,lenR)
+    console.log(cardR.innerHeight)
+    console.log(cardR.height)
+    // var maxLen = lenL > lenR ? lenL : lenR;
+    // console.log(maxLen)
+    // cardL.style.height = cardR.style.height = maxLen + 'px'
+    // console.log(cardL.height)
+  </script>
 </html>
