@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .body,
+    .html {
+      margin: 0;
+      padding: 0;
+    }
+    .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: red;
+  }
+  .frame{
+      position: relative;
+      height: 85vh;
+      margin-top: 10px;
+      border: 2px solid black;
+      /* overflow: hidden; */
+    }
+  </style>
+</head>
+<body>
+  <button id='btn' style="padding: 10px 15px;"> Generate </button>
+  <div class="frame" id="frame"> </div>
+</body>
+<script>
+const btn = document.getElementById('btn');
+const frame = document.getElementById('frame');
+// console.log(frame);
+const height = frame.clientHeight;
+const width = frame.clientWidth;
+console.log(height,width)
+const margin = window.innerHeight - height;
+
+btn.onclick = function(e) {
+	var newCircle = document.createElement('div');
+  	newCircle.classList.add('circle');
+	console.log(newCircle.style.height);
+	console.log(newCircle.style.width);
+	newCircle.style.top = Math.random() * (height - newCircle.style.height)  + 'px';
+	newCircle.style.left = Math.random() * (width - newCircle.style.width) + 'px';
+	console.log(newCircle.style.top)
+	frame.appendChild(newCircle);
+};
+</script>
+</html>
