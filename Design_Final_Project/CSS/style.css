@@ -148,11 +148,30 @@ nav ul li:hover {
 
 /* Intro */
 .banner-img {
+	position: relative;
 	min-height: 55vh;
-	background-image: url(../img/banner.png), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0e0e0e 66.15%);
-	background-position: bottom 30px center, bottom -40px center;
-	background-repeat: no-repeat, no-repeat;
+	background-image: url(../img/banner.png);
+	background-position: top center;
+	background-repeat: no-repeat;
 	background-size: contain;
+	margin-bottom: 50px;
+	/* z-index: 9999; */
+}
+.banner-img:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 30vh;
+	background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0e0e0e 66.15%);
+	/* background-image: linear-gradient(180deg, rgba(250, 93, 93, 0) 0%, #fd0000 66.15%); */
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	opacity: 90%;
+	/* z-index: -1; */
 }
 
 /* .intro-wrapper,
@@ -426,6 +445,10 @@ ul.social-media li:first-child {
 	.banner-img {
 		min-height: 80vh;
 	}
+	.banner-img:after {
+		height: 40vh;
+		top: 60%;
+	}
 
 	h1.headline {
 		font-size: 60px;
@@ -636,6 +659,10 @@ ul.social-media li:first-child {
 	/** Intro section **/
 	.banner-img {
 		min-height: 100vh;
+	}
+	.banner-img:after {
+		height: 50vh;
+		top: 50%;
 	}
 
 	.intro-wrapper {

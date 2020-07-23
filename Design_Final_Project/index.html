@@ -107,24 +107,28 @@
         We focus on ergonomics and meeting you where you work. It's only a keystroke away. 
       </p>
       <div class="contents-content-container clearfix">
-        <div class="card-white left" id="cardLeft">
-          <h3 class="headline"> Work </h3>
-          <p class="sub-headline card-wh-p" id="card-1-headline"> 
-            Ever wondered if you're too reliant on a client for work? Slate helps you identify.
-          </p>
-          <button class="btn-primary btn--blue card-wh-btn">Sign up</button>
-          <div class="content-img" id="content-img-1">
+        <div class="card-white left" >
+          <div id="cardLeft">
+            <h3 class="headline"> Work </h3>
+            <p class="sub-headline card-wh-p" id="card-1-headline"> 
+              Ever wondered if you're too reliant on a client for work? Slate helps you identify.
+            </p>
+            <button class="btn-primary btn--blue card-wh-btn">Sign up</button>
+            <div class="content-img" id="content-img-1">
             <img src="./img/content-img-1.png" alt="laptop showing work feature">
           </div>
+          </div>
         </div>
-        <div class="card-white right" id="cardRight"> 
-          <h3 class="headline card-2-headline"> Design with real data </h3>
-          <p class="sub-headline card-wh-p" id="card-2-subheadline"> 
-            Ever wondered if you're too reliant on a client for work? Slate helps you identify .
-          </p>
-          <button class="btn-primary btn--blue card-wh-btn">Sign up</button>
-          <div class="content-img" id="content-img-2">
+        <div class="card-white right"> 
+          <div id="cardRight">
+            <h3 class="headline card-2-headline"> Design with real data </h3>
+            <p class="sub-headline card-wh-p" id="card-2-subheadline"> 
+              Ever wondered if you're too reliant on a client for work? Slate helps you identify .
+            </p>
+            <button class="btn-primary btn--blue card-wh-btn">Sign up</button>
+            <div class="content-img" id="content-img-2">
             <img src="./img/content-img-2.png" alt="laptop showing work feature">
+          </div>
           </div>
         </div>
       </div>
@@ -319,14 +323,19 @@
 
     var cardL = document.getElementById("cardLeft")
     var cardR = document.getElementById("cardRight")
+    var img1 = document.getElementById('content-img-1')
+    var img2 = document.getElementById('content-img-2')
+    // img1.style.display = 'inline-block'
+    // img2.style.display = 'inline-block'
     lenL = cardL.clientHeight;
     lenR = cardR.clientHeight;
-    console.log(lenL,lenR)
-    console.log(cardR.innerHeight)
-    console.log(cardR.height)
-    // var maxLen = lenL > lenR ? lenL : lenR;
-    // console.log(maxLen)
-    // cardL.style.height = cardR.style.height = maxLen + 'px'
-    // console.log(cardL.height)
+    imgL = img1.clientHeight;
+    imgR = img2.clientHeight;
+
+    console.log(lenL,lenR, imgL, imgR)
+    var maxLen = lenL > lenR ? lenL : lenR;
+    console.log(maxLen)
+    cardL.style.height = cardR.style.height = maxLen + 'px'
+    console.log(cardL.style.height)
   </script>
 </html>
