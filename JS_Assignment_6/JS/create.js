@@ -1,6 +1,6 @@
 function Ball(i) {
 	var id = i;
-	var ball = null;
+	// var ball = null;
 	var interval = null;
 	this.isDeleteable = false;
 	this.isDeleted = false;
@@ -59,7 +59,7 @@ function Ball(i) {
 	this.remove = function() {
 		// console.log(this.ball);
 		document.body.removeChild(this.ball);
-		clearInterval(interval);
+		clearInterval(this.interval);
 		this.isDeleted = true;
 	};
 }

@@ -5,8 +5,12 @@ function Ball(x = 0, y = 0, w = 10, h = 10, container) {
 	this.height = h;
 	this.ball = document.createElement('div');
 	this.container = container;
-	// this.direction = 1;
-	var direction = 1;
+	this.direction = 1;
+	var that = this;
+	var prevColor = null;
+	var prevColor = null;
+
+	// var direction = 1;
 	this.getX = function() {
 		return this.x;
 	};
@@ -38,26 +42,32 @@ function Ball(x = 0, y = 0, w = 10, h = 10, container) {
 		frameWidth = this.container.clientWidth;
 		setInterval(() => {
 			var currentTop = this.ball.style.top;
-			var nextTop = parseInt(currentTop) + 3 * direction;
+			var nextTop = parseInt(currentTop) + 3 * that.direction;
 			this.ball.style.top = nextTop + 'px';
 			if (nextTop >= frameHeight - this.height || nextTop <= 0) {
-				direction *= -1;
+				that.direction *= -1;
 			}
 		}, 1000 / 60);
 	};
 
-	this.ball.addEventListener('click', function() {
-		this.style.backgroundColor = 'green';
-		direction = 0;
-	});
+	// this.ball.addEventListener('click', function() {
+	// 	that.ball.style.backgroundColor = 'blue';
+	// 	that.direction = 1;
+	// });
 
-	// this.ball.addEventListener('mousedown', function() {
-	// 	this.direction = 0;
-	// 	// console.log('hellooooooooo ' + this.direction);
-	// });
-	// this.ball.addEventListener('mouseup', function() {
-	// 	this.direction = 1;
-	// });
+	this.ball.addEventListener('mousedown', function() {
+		prevDirection = that.direction;
+		that.direction = 0;
+		console.log(prevDirection, that.direction);
+		prevColor = that.ball.style.backgroundColor;
+		console.log(prevColor);
+		that.ball.style.backgroundColor = 'green';
+	});
+	this.ball.addEventListener('mouseup', function() {
+		that.direction = prevDirection;
+		console.log(prevDirection);
+		that.ball.style.backgroundColor = prevColor;
+	});
 
 	this.render = function() {
 		this.container.appendChild(this.ball);

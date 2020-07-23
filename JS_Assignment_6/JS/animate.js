@@ -26,12 +26,12 @@ function Animate() {
 
 	this.removeBall = function() {
 		setInterval(function() {
-			balls.forEach(function(ball, index) {
-				if (!ball.isDeleted && ball.getPosition().x > window.innerHeight - ball.getDimension().h) {
+			balls.forEach(function(ball) {
+				if (!ball.isDeleted && ball.getPosition().x > window.innerHeight) {
 					ball.remove();
 				}
 			});
-		}, 1000 / 60);
+		}, 1000 / 10);
 	};
 }
 var animate = new Animate();
