@@ -8,7 +8,7 @@ var formInputs = [
 	},
 	{
 		label: 'Email',
-		type: 'text',
+		type: 'email',
 		name: 'email',
 		placeholder: 'Enter email',
 		errorMsg: 'Email is not valid'
@@ -51,7 +51,7 @@ formInputs.forEach(function(value, index) {
 
 form.createSubmitButton();
 
-//--------- Validation --------------
+// --------- Validation --------------
 
 const username = document.getElementById('username');
 const divUser = document.getElementById('div-username');
@@ -62,25 +62,28 @@ const divEmail = document.getElementById('div-email');
 const password = document.getElementById('password');
 const divPwd = document.getElementById('div-password');
 
-const password2 = document.getElementById('password2');
-const divPwd2 = document.getElementById('div-Confirmpassword');
+const password2 = document.getElementById('Comfirmpassword');
+const divPwd2 = document.getElementById('div-Comfirmpassword');
 
 const submitBtn = document.getElementById('submit-btn');
 
-console.log(divUser, username, email, divEmail, password, divPwd, submitBtn);
+console.log(divUser, username, email, divEmail, password2, divPwd2, submitBtn);
 
 validate = new Validate();
 var validateFunction;
 
 submitBtn.addEventListener('click', function(event) {
-	console.log('clicked submit btn');
-	if (!validateFunction(event)) {
+	// console.log('clicked submit btn');
+	// console.log(event);
+	var isFormValid = validateFunction(event);
+	if (!isFormValid) {
 		event.preventDefault();
 	}
 });
 
 var validateFunction = function(event) {
 	console.log(event);
+	console.log(username.value);
 	if (validate.isUsernameValid(username.value)) {
 		username.className = 'input valid';
 		divUser.className = 'errorbox hidden';
@@ -91,15 +94,15 @@ var validateFunction = function(event) {
 
 	if (validate.isEmailValid(email.value)) {
 		email.className = 'input valid';
-		divEmail.className = 'errorbox hidden';
+		divEmail.className = 'errorBox hidden';
 	} else {
 		email.classList.add('invalid');
 		divEmail.classList.add('visible');
 	}
 
-	if (validate.isPasswordValid(password.value) && password1.valid != '') {
+	if (validate.isPasswordValid(password.value)) {
 		password.className = 'input valid';
-		divPwd.className = 'errorbox hidden';
+		divPwd.className = 'errorBox hidden';
 	} else {
 		password.classList.add('invalid');
 		divPwd.classList.add('visible');
@@ -107,10 +110,10 @@ var validateFunction = function(event) {
 
 	if (validate.isPassword2Valid(password2.value, password.value)) {
 		password2.className = 'input valid';
-		divPwd2.className = 'errorbox hidden';
+		divPwd2.className = 'errorBox hidden';
 	} else {
 		password2.classList.add('invalid');
-		divpwd2.classList.add('visible');
+		divPwd2.classList.add('visible');
 	}
 
 	return false;

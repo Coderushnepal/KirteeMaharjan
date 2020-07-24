@@ -20,9 +20,9 @@ function Form() {
 		input.setAttribute('type', value.type);
 		input.setAttribute('name', value.name);
 		input.setAttribute('placeholder', value.placeholder);
-		// if (value.type == 'password') {
-		// 	input.setAttribute('required', 'required');
-		// }
+		if (value.type == 'password') {
+			input.setAttribute('required', 'required');
+		}
 		this.form.appendChild(input);
 
 		var div = document.createElement('div');
