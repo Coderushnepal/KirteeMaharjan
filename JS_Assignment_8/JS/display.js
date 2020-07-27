@@ -1,6 +1,5 @@
 var bodyParts = document.getElementsByClassName('figure-part');
 let i = 0;
-let interval;
 
 var rightGuess = new Set();
 var wrongGuess = new Set();
@@ -26,7 +25,6 @@ function appendRightSet(letter) {
 		return false;
 	} else {
 		rightGuess.add(letter);
-		checkWin();
 		return true;
 	}
 }

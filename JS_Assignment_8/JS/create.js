@@ -10,19 +10,18 @@ function Check() {
 	};
 
 	this.checkGuessedLetter = function(letter) {
-		checkWin();
-		checklost();
 		if (this.letters.includes(letter)) {
 			if (appendRightSet(letter)) {
 				this.letters.forEach((value, index) => {
 					if (value === letter) {
 						displayRightGuess(letter, index);
 					}
+					checkWin();
 				});
 			}
 		} else {
 			if (/^[a-z]{1}$/i.test(letter)) {
-				console.log('pressed' + letter);
+				// console.log('pressed' + letter);
 				appendWrongSet(letter);
 			}
 		}
