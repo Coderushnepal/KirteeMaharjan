@@ -1,11 +1,15 @@
 var bodyParts = document.getElementsByClassName('figure-part');
 let i = 0;
+let interval;
 
 var rightGuess = new Set();
 var wrongGuess = new Set();
 
 function displayAlreadyGuessed(letter) {
 	var box = document.getElementById('guessedLetter');
+	setTimeout(() => {
+		box.style.visibility = 'hidden';
+	}, 1000);
 	box.innerHTML = letter + ' is already guessed';
 	console.log(box);
 	box.style.visibility = 'visible';
@@ -19,8 +23,11 @@ function displayRightGuess(value, index) {
 function appendRightSet(letter) {
 	if (rightGuess.has(letter)) {
 		displayAlreadyGuessed(letter);
+		return false;
 	} else {
 		rightGuess.add(letter);
+		checkWin();
+		return true;
 	}
 }
 
@@ -32,8 +39,6 @@ function displayWrongGuess(value) {
 function displyaFigureParts() {
 	bodyParts[i].style.visibility = 'visible';
 	i++;
-	// console.log(i);
-	return i == bodyParts.length ? true : false;
 }
 
 function appendWrongSet(letter) {
@@ -42,8 +47,11 @@ function appendWrongSet(letter) {
 	} else {
 		wrongGuess.add(letter);
 		displayWrongGuess(letter);
-		if (displyaFigureParts()) {
-			console.log('you lost');
-		}
+		displyaFigureParts();
+		checklost();
+		// console.log(Array.from(bodyParts).every((part) => part.style.visibility == 'visible'));
+		// if (Array.from(bodyParts).every((part) => part.style.visibility == 'visible')) {
+		// 	var popUp = document.getElementById('pop-up');
+		// 	popUp.style.display = 'block';
 	}
 }

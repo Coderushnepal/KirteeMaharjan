@@ -1,1 +1,1 @@
-words = [ 'blablablabla', 'blacksheep', 'have', 'youany', 'wool' ];
+words = [ 'abyss', 'blacksheep', 'tangerine', 'piffling', 'oyster' ];
