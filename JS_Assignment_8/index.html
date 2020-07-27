@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman</title>
+  <link rel="stylesheet" href="./CSS/style.css" type="text/css">
+</head>
+<body style="overflow: hidden;">
+  <main class="flex-col">
+    <div class="head class="after-style"">
+      <h1>  Hangman    </h1>
+      <p> Enter a letter </p>
+    </div>
+    <div class="flex-row wrong">
+      <div class="game-container"> 
+        <svg height="250" width="200" class="figure-container">
+          <!--  Rod  -->
+          <line x1="60" y1="20" x2="140" y2="20"/>
+          <line x1="140" y1="20" x2="140" y2="50" />
+          <line x1="60" y1="20" x2="60" y2="240" />
+          <line x1="20" y1="240" x2="100" y2="240" />
+          <!--  Head  -->
+          <circle cx="140" cy="70" r="20" class="figure-part"/>
+          <!--  Body  -->
+          <line x1="140" y1="90" x2="140" y2="150" class="figure-part"/>
+          <!--  Arms  -->
+          <line x1="140" y1="120" x2="120" y2="100" class="figure-part" />
+          <line x1="140" y1="120" x2="160" y2="100" class="figure-part" />
+          <!--  Legs  -->
+          <line x1="140" y1="150" x2="120" y2="180" class="figure-part" />
+          <line x1="140" y1="150" x2="160" y2="180" class="figure-part" />
+        </svg>
+      </div>
+      <div id="wrong-guesses-container">
+        <span>Wrong</span>
+        <div class="font-lg" id="wrong-guesses">
+        </div>
+      </div>
+    </div>
+    <div class="hiddenBoxContainer font-xl flex-row" id="hiddenBoxContainer">
+      <!-- this is answer section -->
+      <!-- <span class="hiddenBox">a</span>-->
+    </div>
+    <div id="guessedLetter">
+    </div>
+  </main>
+</body>
+
+<script src="./JS/words.js"></script>
+<script src="./JS/display.js"></script>
+<script src="./JS/word.js"></script>
+<script src="./JS/main.js"></script>
+</html>
