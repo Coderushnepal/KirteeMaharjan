@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Email Template
+        </title>
+        <style>
+            .whole-frame{
+                width: 700px;
+                border: 1px solid black;
+                border-collapse: collapse;
+                border-spacing: 5px;
+                background-color:beige;
+                
+            }
+            td{
+                border: 1px solid transparent;
+                border-collapse: collapse;
+            }
+            a{
+                color: white;
+                text-decoration: double;
+            }
+            tr.top-row{
+                background-color: rgb(130, 240, 58);
+                margin:20px 25px 0px 25px; 
+                width:650px;
+                font-size: 18px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            /* row1 logo part*/
+            .logo{
+                width: 65px;
+                height: 65px;
+                margin: 0px 10px;
+            }
+            /* row 1 navigation part */
+            .top-row-col2{
+                width: 100px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                text-align: center;
+            }
+            tr.second-row{
+                margin-right: 25px;
+                height: 300px;
+                width: 650px;
+              /*background-image: url('https://th.bing.com/th/id/OIP.EDSiyZKz_-zrRr-Go0KxggHaDt?w=349&h=174&c=7&o=5&dpr=1.25&pid=1.7');*/
+              background-image: url('https://cdn.pixabay.com/photo/2017/07/08/17/42/carrots-2485051__340.jpg');
+                background-repeat:no-repeat;
+                background-size: 650px 300px;
+                background-position: center;
+            }
+            .third-section{
+                margin:0px 25px; 
+                width:650px;
+                background-color: rgb(130, 240, 58);
+            }
+            .products{
+                background-color: white;
+                padding:5px;
+                border: 5px solid  rgb(130, 240, 58);
+                border-radius: 15px;
+                width: 185px;
+            }
+            tr.foot-row{
+                background-color: yellow;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table class="whole-frame" cellpadding="10px" cellspacing="5px">
+            <tr class="top-row">
+                <td>
+                    <table style="width: 650px; margin:0px 25px; border:0px solid black;">
+                        <tr >
+                            <td width="200px">
+                               <img src="https://th.bing.com/th/id/OIP.TDFWHPPBAgx0BIWg05TbCQHaHZ?w=232&h=220&c=7&o=5&dpr=1.25&pid=1.7" class="logo">
+                               
+                            </td>
+                            <td class="top-row-col2">
+                                <a href="#">Home</a>
+                            </td class="top-row-col2">
+                            <td class="top-row-col2">
+                                <a href="#">About</a>
+                            </td >
+                            <td class="top-row-col2">
+                                <a href="#">Contact</a>
+                            </td>
+                            <td class="top-row-col2">
+                                <a href="#">Shipment</a>
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+             </tr>
+           
+            <tr class="second-row">
+                <td>
+                   <img src="https://th.bing.com/th/id/OIP.q_GHzDX4Sq3X98Wi5N9qBgHaF-?w=203&h=180&c=7&o=5&dpr=1.25&pid=1.7" width="100px" height="100px" style="margin-left: 25px; margin-top: 0px;">  
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <table class="third-section" >
+                        <tr>
+                            <td colspan="3" style="text-align: center; color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; padding:15px 0px;">
+                                <b>OUR PRODUCTS</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="products">
+                                <img src="https://th.bing.com/th/id/OIP.Rp0MoJLhZFCj_-ZA0n4jNQHaFj?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7" width="200px">
+                                <br>                       
+                                <h4>Fruit Jam</h4>
+                                <p>
+                                    <strike>$4</strike>  <span style="margin-left: 10px;"><b> $3.2 </b></span>
+                                    <br>
+                                    for each
+                                </p>
+                            </td>
+                            <td class="products">
+                                <img src=https://th.bing.com/th/id/OIP.w5ALBgbIpoy_Sb04ab4jaAAAAA?w=154&h=180&c=7&o=5&dpr=1.25&pid=1.7" width="200px">
+                                <br>
+                                <h4>Organic Berries</h4>
+                                <p>
+                                    <strike>$7</strike>  <span style="margin-left: 10px;"><b> $5.6 </b></span>
+                                    <br>
+                                    Size: 8oz
+                                </p>
+                            </td>
+                            <td class="products">
+                                <img src=https://tse1.mm.bing.net/th?id=OIP.MzmWdOSFILgpfty4JTMhaAAAAA&w=151&h=160&c=8&rs=1&qlt=90&dpr=1.25&pid=3.1&rm=2>
+                                <br>
+                                <h4>Organic Veggie Box</h4>
+                                <p>
+                                    Starting from $13
+                                    <br>
+                                    Visit our <a href="#" style="color: green;">website </a> to see options.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>          
+            </tr>
+
+            <tr class="foot-row">
+                <td align="center">
+                    <a href="#" style="color: green;">Sign in </a> to get notified on offers!!
+                    <br>
+                    <a href="#" style="color: green;">unsubscribe </a> from our newsletter
+                    <br>
+                   
+                </td>
+            </tr>  
+        </table>
+    </body>

@@ -1,3 +1,4 @@
+var isPopUpDisplayed = false;
 var popUp = document.getElementById('pop-up');
 var popUpMsg = document.getElementById('pop-up-message');
 // console.log(bodyParts);
@@ -12,12 +13,11 @@ function checklost() {
 function checkWin() {
 	var bodyParts = document.getElementsByClassName('figure-part');
 	var hiddenBoxes = document.getElementsByClassName('hiddenBox');
-	// console.log(hiddenBoxes);
 	var what = Array.from(hiddenBoxes).every((box) => {
 		return box.innerHTML ? true : false;
 	});
-	console.log(what);
 	if (what) {
+		isPopUpDisplayed = true;
 		popUpMsg.innerHTML = 'Congrats, You Won!';
 		popUp.style.display = 'block';
 	}
