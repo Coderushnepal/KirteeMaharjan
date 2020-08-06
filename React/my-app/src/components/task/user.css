@@ -1,0 +1,50 @@
+.user {
+	width: 30%;
+	text-align: center;
+	margin: 0 10px;
+}
+
+button {
+	padding: 10px 15px;
+	font-size: 18px;
+}
+
+.transit {
+	margin: 10px auto;
+	font-size: 24px;
+	text-align: center;
+	position: relative;
+	background-color: white;
+	animation: startmoving 2s infinite;
+}
+
+@keyframes startmoving {
+	0% {
+		top: 0px;
+		color: red;
+		opacity: 100%;
+	}
+	25% {
+		top: -100px;
+		color: blue;
+		opacity: 90%;
+	}
+	50% {
+		top: -200px;
+		color: yellow;
+		opacity: 75%;
+	}
+	100% {
+		top: -300px;
+		color: yellow;
+		opacity: 0;
+	}
+}
+
+img {
+	width: 100%;
+}
+/* 
+.got-wings {
+	margin: 10px 0;
+} */

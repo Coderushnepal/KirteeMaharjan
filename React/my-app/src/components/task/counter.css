@@ -1,0 +1,38 @@
+.cards {
+	margin: 10px 10px;
+	min-width: 200px;
+	padding: 20px;
+	border: 1px solid;
+}
+
+.cards h1,
+h2 {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.buttons {
+	text-align: center;
+}
+
+.buttons button {
+	padding: 5px 10px;
+	margin: 0px 10px;
+}
+
+div.nameList {
+	margin: 20px 0px;
+}
+
+.red {
+	color: red;
+}
+
+.blue {
+	color: #3498db;
+}
+
+.name {
+	font-size: 18px;
+	font-family: cursive;
+}
