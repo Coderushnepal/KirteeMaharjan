@@ -1,21 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
-import {Main} from './main'
-
-
+import { Main, Assignment1, Assignment2 } from './main';
 
 const AppRouter = () => (
 	<Router>
 		<Switch>
-			<Route exact to="/" component={Main} />
-			{/* <Route to="/abc" component={Abc} />
-			<Route to="/dbc" component={Def} /> */}
+			<Route exact path="/" component={Main} />
+			<Route path="/assignment-1" component={Assignment1} />
+			<Route path="/assignment-2" component={Assignment2} />
 			{/* <Route to="*" component={FourOhFour} /> */}
 		</Switch>
 	</Router>
 );
 
-export Assignment_1;
 export default AppRouter;
-

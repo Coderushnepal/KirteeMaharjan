@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 import { Counter, User, Heading } from '../task';
 import { EnhanceCounterTwo } from '../task';
+import { Link } from 'react-router-dom';
 
 const names = [
 	'Neeta Sapkota',
@@ -23,34 +24,36 @@ const names = [
 ];
 const samples = [ 'A', 'B' ];
 
-const Assignment_1 = () => (
-	<div>
-		<Heading title={'Day One Task'} />
-		<div className="main">{names.map((name, index) => <Counter key={name.concat(index)} name={name} />)}</div>
-	</div>
-);
-
-const Assignment_2 = () => (
-	<div>
-		Heading title={'Day Three Task'} />
-		<div className="main">
-			{samples.map((name, index) => <EnhanceCounterTwo key={name.concat(index)} name={name} />)}
+export function Assignment1() {
+	return (
+		<div>
+			<Heading title={'Day One Task'} />
+			<div className="main">{names.map((name, index) => <Counter key={name.concat(index)} name={name} />)}</div>
 		</div>
-		<div className="main main3">{names.slice(3, 9).map((name, index) => <User key={name} name={name} />)}</div>
-	</div>
-);
+	);
+}
+
+export function Assignment2() {
+	return (
+		<div>
+			<Heading title={'Day Three Task'} />
+			<div className="main">
+				{samples.map((name, index) => <EnhanceCounterTwo key={name.concat(index)} name={name} />)}
+			</div>
+			<div className="main main3">{names.slice(3, 9).map((name, index) => <User key={name} name={name} />)}</div>
+		</div>
+	);
+}
 
 const Main = () => (
-	<div className="main">
+	<div>
 		<h1>Main page</h1>
 		<ul>
 			<li>
-				<Link to="/">Assignment_1</Link>
+				<Link to="/assignment-1">Assignment 1</Link>
 			</li>
-		</ul>
-		<ul>
 			<li>
-				<Link to="/">Assignment_2</Link>
+				<Link to="/assignment-2">Assignment 2</Link>
 			</li>
 		</ul>
 	</div>

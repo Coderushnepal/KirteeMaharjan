@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import Router from './Router';
 // import Enhance, { Parent } from './sample/Parent';
 
 function App() {
