@@ -27,8 +27,15 @@ const samples = [ 'A', 'B' ];
 export function Assignment1() {
 	return (
 		<div>
-			<Heading title={'Day One Task'} />
-			<div className="main">{names.map((name, index) => <Counter key={name.concat(index)} name={name} />)}</div>
+			<div className="link">
+				<Link to="/"> Back to main page </Link>
+			</div>
+			<div>
+				<Heading title={'Day One Task'} />
+				<div className="main">
+					{names.map((name, index) => <Counter key={name.concat(index)} name={name} />)}
+				</div>
+			</div>
 		</div>
 	);
 }
@@ -36,11 +43,18 @@ export function Assignment1() {
 export function Assignment2() {
 	return (
 		<div>
-			<Heading title={'Day Three Task'} />
-			<div className="main">
-				{samples.map((name, index) => <EnhanceCounterTwo key={name.concat(index)} name={name} />)}
+			<div className="link">
+				<Link to="/"> Back to main page </Link>
 			</div>
-			<div className="main main3">{names.slice(3, 9).map((name, index) => <User key={name} name={name} />)}</div>
+			<div>
+				<Heading title={'Day Three Task'} />
+				<div className="main">
+					{samples.map((name, index) => <EnhanceCounterTwo key={name.concat(index)} name={name} />)}
+				</div>
+				<div className="main main3">
+					{names.slice(3, 9).map((name, index) => <User key={name} name={name} />)}
+				</div>
+			</div>
 		</div>
 	);
 }

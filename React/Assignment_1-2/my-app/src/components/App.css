@@ -18,11 +18,15 @@
 }
 
 h1,
-h2 {
+h2,
+ul,
+.link {
 	text-align: center;
 }
 
-/*router */
-ul {
-	text-decoration: none;
+a {
+	color: white;
+}
+a:hover {
+	color: blue;
 }
