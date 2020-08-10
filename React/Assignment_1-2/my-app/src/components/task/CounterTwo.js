@@ -1,5 +1,5 @@
 import React from 'react';
-import './counter.css';
+// import './counter.css';
 import { isVowel } from '../../utils/Strings';
 import { withCount } from '../hoc';
 

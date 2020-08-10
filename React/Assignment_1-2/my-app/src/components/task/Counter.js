@@ -1,6 +1,6 @@
 import React from 'react';
 import { isVowel } from '../../utils/Strings';
-import './counter.css';
+// import './counter.css';
 
 export default class Counter extends React.Component {
 	constructor(props) {

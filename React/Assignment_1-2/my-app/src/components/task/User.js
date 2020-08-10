@@ -1,5 +1,5 @@
 import React from 'react';
-import './user.css';
+// import './user.css';
 import { withRedBull } from '../hoc';
 
 export class User extends React.Component {
