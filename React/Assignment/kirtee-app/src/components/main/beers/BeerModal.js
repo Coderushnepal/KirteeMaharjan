@@ -1,20 +1,106 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import { Modal } from '../../common';
+import * as toast from "../../../utils/toast";
+// import { success } from '../../../utils/toast';
+import { Modal, Spinner } from "../../common";
+import { fetchBeerById } from "../../../services/beerService";
 
 class BeerModal extends Component {
-	render() {
-		const { beer, handleClose, show } = this.props;
-		const { description } = beer;
-		console.log(handleClose);
-		return (
-			<Modal show={show} handleClose={handleClose}>
-				<div>
-					<h2>{description}</h2>
-				</div>
-			</Modal>
-		);
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      beer: {},
+    };
+  }
+
+  fetchBeer = async () => {
+    try {
+      const data = await fetchBeerById(this.props.beerId);
+
+      this.setState({
+        beer: data,
+        isLoading: false,
+      });
+      toast.success({
+        title: "YAY!!",
+        message: "Beers fetch successfull!",
+      });
+    } catch (error) {
+      const errorMsg = error.response.data.data[0].msg;
+      toast.error({
+        title: "Oh no!",
+        message: errorMsg,
+      });
+    }
+  };
+
+  componentDidMount() {
+    this.fetchBeer();
+  }
+
+  render() {
+    const { isLoading, beer } = this.state;
+    const { handleClose, show } = this.props;
+    const { description, name, tagline, ibu, abv, ebc, food_pairing } = beer;
+    // console.log(handleClose);
+
+    return (
+      <Modal show={show} handleClose={handleClose}>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div className="DescriptionModal clearfix">
+            <div>
+              <div className="DescriptionModal__left">
+                <div
+                  className="DescriptionModal__left__imgcontainer"
+                  style={{ backgroundImage: `url(${beer.image_url})` }}
+                />
+              </div>
+              <div className="DescriptionModal__right">
+                <div>
+                  <h2>{name}</h2>
+                  <span className="DescriptionModal__right__title">
+                    {tagline}
+                  </span>
+                  <ul>
+                    <li>
+                      <span className="bold">IBU: {ibu}</span>
+                    </li>
+                    <li>
+                      <span className="bold">IBU: {abv}</span>
+                    </li>
+                    <li>
+                      <span className="bold">IBU: {ebc}</span>
+                    </li>
+                  </ul>
+                  <p>{description}</p>
+                  {!!food_pairing.length && (
+                    <div className="DescriptionModal__right__list">
+                      <span>Best served with: </span>
+                      <ul>
+                        {food_pairing.map((food, index) => (
+                          <li key={food}> {food} </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </Modal>
+    );
+  }
 }
+
+BeerModal.propTypes = {
+  beerId: PropTypes.number,
+  handleClose: PropTypes.func,
+  show: PropTypes.bool,
+};
 
 export default BeerModal;

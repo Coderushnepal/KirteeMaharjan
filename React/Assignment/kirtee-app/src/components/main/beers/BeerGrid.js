@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import { dummyBeersData } from '../../../constants/dummyData';
 import { Header, Spinner } from '../../common';
 import Beer from './Beer';
+import { fetchBeers } from '../../../services/beerService';
 
 class BeerGrid extends Component {
 	constructor(props) {
@@ -17,12 +17,11 @@ class BeerGrid extends Component {
 	scrollParentRef = null;
 
 	fetchBeers = async () => {
-		setTimeout(() => {
-			this.setState({
-				beers: dummyBeersData,
-				isLoading: false
-			});
-		}, 2000);
+		const data = await fetchBeers();
+		this.setState({
+			beers: data,
+			isLoading: false
+		});
 	};
 	componentDidMount() {
 		this.fetchBeers();
@@ -37,8 +36,9 @@ class BeerGrid extends Component {
 					<Spinner />
 				) : (
 					<main>
-						<div className="container" ref={(r) => (this.scrolParentRef = r)} />
-						{this.state.beers.map((beer) => <Beer key={beer.id} info={beer} />)}
+						<div className="container" ref={(r) => (this.scrolParentRef = r)}>
+							{this.state.beers.map((beer) => <Beer key={beer.id} info={beer} />)}
+						</div>
 					</main>
 				)}
 			</div>

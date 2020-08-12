@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import BeerModal from './BeerModal'
+import BeerModal from './BeerModal';
 
 class Beer extends Component {
 	constructor(props) {
@@ -19,22 +19,19 @@ class Beer extends Component {
 	};
 	render() {
 		const { isFavourite, showModal } = this.state;
-		const { name, description, image_url } = this.props.info;
+		const { id, name, description, image_url } = this.props.info;
 
 		return (
 			<Fragment>
-				{showModal ? (
-					<BeerModal show={showModal} handleClose={this.handleModalClose} beer={this.props.info} />
-				) : null
-				}
-					<div className="card">
-						<span className={`favourite ${isFavourite ? 'active' : ''}`}>
-							<i className="far fa-star" />
-						</span>
-						<div className="card__imgcontainer" style={{ backgroundImage: `url(${image_url})` }} />
-						<h2 onClick={this.handleModalOpen}>{name}</h2>
-						<span className="card__description">{description}</span>
-					</div>
+				{showModal ? <BeerModal show={showModal} handleClose={this.handleModalClose} beerId={id} /> : null}
+				<div className="card">
+					<span className={`favourite ${isFavourite ? 'active' : ''}`}>
+						<i className="far fa-star" />
+					</span>
+					<div className="card__imgcontainer" style={{ backgroundImage: `url(${image_url})` }} />
+					<h2 onClick={this.handleModalOpen}>{name}</h2>
+					<span className="card__description">{description}</span>
+				</div>
 			</Fragment>
 		);
 	}
