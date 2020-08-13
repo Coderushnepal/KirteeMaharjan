@@ -1,8 +1,8 @@
 import iziToast from "izitoast";
 
 iziToast.settings({
-  timeout: 6000,
-  backgroundColor: "green",
+  timeout: 4000,
+  progressBarColor: "white",
 });
 
 export const success = ({ title, message }) => {
@@ -11,15 +11,16 @@ export const success = ({ title, message }) => {
     title: title,
     message: message,
     backgroundColor: "green",
-    timeout: 6000,
+    timeout: 4000,
   });
 };
 
 export const error = ({ title, message }) => {
   console.log("error", title, message);
-  iziToast.error({
-    timeout: 6000,
+  iziToast.show({
     title,
     message,
+    backgroundColor: "#ff0000",
+    timeout: 6000,
   });
 };

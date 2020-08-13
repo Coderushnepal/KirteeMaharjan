@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+// import http from "../../../utils/http";
+
 import * as toast from "../../../utils/toast";
-// import { success } from '../../../utils/toast';
 import { Modal, Spinner } from "../../common";
 import { fetchBeerById } from "../../../services/beerService";
 
@@ -16,19 +17,37 @@ class BeerModal extends Component {
   }
 
   fetchBeer = async () => {
+    // http
+    //   .get("/beers/1")
+    //   .then(function (response) {
+    //     this.setState({
+    //       beer: response.data,
+    //       isLoading: false,
+    //     });
+    //   })
+    //   .catch(function (error) {
+    //     console.log("###", error);
+    //     const errorMsg = error.response.data.message || "Unsuccessful";
+    //     toast.error({
+    //       title: "Oh no!",
+    //       message: errorMsg,
+    //     });
+    //   });
+    // .finally(() => {
+    //   this.setState({ isLoading: true });
+    // });
     try {
       const data = await fetchBeerById(this.props.beerId);
-
       this.setState({
         beer: data,
         isLoading: false,
       });
-      toast.success({
-        title: "YAY!!",
-        message: "Beers fetch successfull!",
-      });
+      // toast.success({
+      //   title: "YAY!!",
+      //   message: "Beers fetch successfull!",
+      // });
     } catch (error) {
-      const errorMsg = error.response.data.data[0].msg;
+      const errorMsg = error.response.data.message || "Error occured!!";
       toast.error({
         title: "Oh no!",
         message: errorMsg,
