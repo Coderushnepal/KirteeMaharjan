@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { Header } from "../common";
+
+// import { dummyBeersData as favourites } from "../../constants/dummyData";
+
 class Favourites extends Component {
   render() {
     return (
       <div className="wrapper">
         <Header />
-        <h3 style={{ textAlign: "center" }}>Inside Fav</h3>
+        <main>
+          <div className="container"></div>
+        </main>
       </div>
     );
   }

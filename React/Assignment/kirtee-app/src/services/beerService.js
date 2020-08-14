@@ -1,8 +1,16 @@
 import http from "../utils/http";
 
-export const fetchBeers = async () => {
+export const fetchBeers = async (
+  pageInfo = { page: 2, size: 10 },
+  beerName
+) => {
+  const params = { page: pageInfo.page, per_page: pageInfo.size };
+  if (!!beerName) {
+    params.beer_name = beerName;
+  }
+
   //call async api
-  const res = await http.get("/beers");
+  const res = await http.get("/beers", { params });
   const data = res.data;
   // console.log(res, data);
   return data;
