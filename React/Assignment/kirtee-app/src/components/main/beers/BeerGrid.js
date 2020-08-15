@@ -39,7 +39,7 @@ class BeerGrid extends Component {
       const { beers, searchFor, hasFilter } = this.state;
       let pageInfo = this.state.pageInfo;
 
-      console.log(searchFor);
+      // console.log(searchFor);
       if (hasFilter) {
         pageInfo.page = 1;
       }
@@ -56,7 +56,9 @@ class BeerGrid extends Component {
         hasFilter: false,
       });
     } catch (error) {
-      const errorMsg = error.response.data.message;
+      // const errorMsg = "no beers!!";
+      // console.log(error.response.data.message);
+      const errorMsg = error.response.data.message || "something went wrong";
       toast.error({
         title: "Error!",
         message: errorMsg,
