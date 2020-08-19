@@ -1,8 +1,13 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
+// import Counter from "../../common/Counter";
 import BeerModal from "./BeerModal";
-import { dummyBeersData as favourites } from "../../../constants/dummyData";
+// import { dummyBeersData as favourites } from "../../../constants/dummyData";
+import { favouriteBeersActions } from "../../../actions";
+
 class Beer extends Component {
   constructor(props) {
     super(props);
@@ -20,13 +25,33 @@ class Beer extends Component {
     this.setState({ showModal: false });
   };
 
+  toggleFavourites = () => {
+    const {
+      favouriteBeers,
+      AddFavourites,
+      RemoveFavourites,
+      info,
+    } = this.props;
+    let beerIndex = favouriteBeers.findIndex((beer) => beer.id === info.id);
+    if (beerIndex > -1) {
+      RemoveFavourites(info.id);
+    } else {
+      AddFavourites(info);
+    }
+  };
+
   render() {
     const { showModal } = this.state;
     const { id, name, description, image_url } = this.props.info;
-    const beerIndex = favourites.findIndex((beer) => beer.id === id);
+
+    const beerIndex = this.props.favouriteBeers.findIndex(
+      (beer) => beer.id === id
+    );
+    //  //id: this.props.info.id : jun beer ko card ho tei beer ko id
 
     return (
       <Fragment>
+        {/* <Counter /> */}
         {showModal ? (
           <BeerModal
             show={showModal}
@@ -36,7 +61,10 @@ class Beer extends Component {
         ) : null}
         <div className="card">
           <span className={`favourite ${beerIndex > -1 ? "active" : ""}`}>
-            <i className={`${beerIndex > -1 ? "fas" : "far"} fa-star`} />
+            <i
+              className={`${beerIndex > -1 ? "fas" : "far"} fa-star`}
+              onClick={this.toggleFavourites}
+            />
           </span>
           <div
             className="card__imgcontainer"
@@ -63,4 +91,17 @@ Beer.propTypes = {
 //     abc = 'abscjdk'
 // }
 
-export default Beer;
+const mapStateToProps = ({ favouriteBeersReducer }) => {
+  return {
+    favouriteBeers: favouriteBeersReducer.favouriteBeers,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // action: bindActionCreators({ ...favouriteBeersActions }, dispatch),
+    ...bindActionCreators({ ...favouriteBeersActions }, dispatch),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Beer);

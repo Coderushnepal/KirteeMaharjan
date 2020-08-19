@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import { Header } from "../common";
 import Beer from "../main/beers/Beer";
-import { dummyBeersData } from "../../constants/dummyData";
 
+// import { dummyBeersData } from "../../constants/dummyData";
 // import { dummyBeersData as favourites } from "../../constants/dummyData";
 
 class Favourites extends Component {
@@ -21,7 +22,7 @@ class Favourites extends Component {
   };
 
   render() {
-    let favourites = dummyBeersData;
+    let favourites = this.props.favouriteBeers;
     if (!!this.state.searchFor) {
       favourites = favourites.filter((beer) =>
         beer.name.toLowerCase().includes(this.state.searchFor.toLowerCase())
@@ -41,4 +42,10 @@ class Favourites extends Component {
   }
 }
 
-export default Favourites;
+const mapStateToProps = ({ favouriteBeersReducer }) => {
+  return {
+    favouriteBeers: favouriteBeersReducer.favouriteBeers,
+  };
+};
+
+export default connect(mapStateToProps)(Favourites);

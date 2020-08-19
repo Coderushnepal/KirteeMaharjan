@@ -3,8 +3,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 import { Header, Spinner } from "../../common";
 import Beer from "./Beer";
+// import Counter from "../../common/Counter";
 import { fetchBeers } from "../../../services/beerService";
-
 import * as toast from "../../../utils/toast";
 
 class BeerGrid extends Component {
@@ -77,6 +77,7 @@ class BeerGrid extends Component {
         <Header setSearchText={this.setSearchText} />
         <main>
           <div className="container" ref={(r) => (this.scrolParentRef = r)}>
+            {/* <Counter /> */}
             {/* {!beers.length ? (
               <h3 style={{ textAlign: "center" }}>No beers found</h3>
             ) : ( */}
@@ -86,7 +87,7 @@ class BeerGrid extends Component {
               hasMore={hasMore}
               loader={hasMore ? <Spinner /> : null}
             >
-              {this.state.beers.map((beer) => (
+              {beers.map((beer) => (
                 <Beer key={beer.id} info={beer} />
               ))}
             </InfiniteScroll>
