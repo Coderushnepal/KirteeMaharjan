@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/KirteeMaharjan/React/Assignment/static/css/main.eb3c95b6.chunk.css",
+    "main.js": "/KirteeMaharjan/React/Assignment/static/js/main.23ef6a1e.chunk.js",
+    "main.js.map": "/KirteeMaharjan/React/Assignment/static/js/main.23ef6a1e.chunk.js.map",
+    "runtime-main.js": "/KirteeMaharjan/React/Assignment/static/js/runtime-main.4116eda1.js",
+    "runtime-main.js.map": "/KirteeMaharjan/React/Assignment/static/js/runtime-main.4116eda1.js.map",
+    "static/css/2.aa7e5f6d.chunk.css": "/KirteeMaharjan/React/Assignment/static/css/2.aa7e5f6d.chunk.css",
+    "static/js/2.01bdbca5.chunk.js": "/KirteeMaharjan/React/Assignment/static/js/2.01bdbca5.chunk.js",
+    "static/js/2.01bdbca5.chunk.js.map": "/KirteeMaharjan/React/Assignment/static/js/2.01bdbca5.chunk.js.map",
+    "index.html": "/KirteeMaharjan/React/Assignment/index.html",
+    "precache-manifest.6940ef3c9c04439118deddf4d385dc75.js": "/KirteeMaharjan/React/Assignment/precache-manifest.6940ef3c9c04439118deddf4d385dc75.js",
+    "service-worker.js": "/KirteeMaharjan/React/Assignment/service-worker.js",
+    "static/css/2.aa7e5f6d.chunk.css.map": "/KirteeMaharjan/React/Assignment/static/css/2.aa7e5f6d.chunk.css.map",
+    "static/css/main.eb3c95b6.chunk.css.map": "/KirteeMaharjan/React/Assignment/static/css/main.eb3c95b6.chunk.css.map",
+    "static/js/2.01bdbca5.chunk.js.LICENSE.txt": "/KirteeMaharjan/React/Assignment/static/js/2.01bdbca5.chunk.js.LICENSE.txt",
+    "static/media/style.scss": "/KirteeMaharjan/React/Assignment/static/media/12.7ecfe9e3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4116eda1.js",
+    "static/css/2.aa7e5f6d.chunk.css",
+    "static/js/2.01bdbca5.chunk.js",
+    "static/css/main.eb3c95b6.chunk.css",
+    "static/js/main.23ef6a1e.chunk.js"
+  ]
+}
