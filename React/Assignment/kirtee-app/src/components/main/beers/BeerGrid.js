@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { connect } from "react-redux";
 
 import { Header, Spinner } from "../../common";
 import Beer from "./Beer";
@@ -72,6 +73,7 @@ class BeerGrid extends Component {
 
   render() {
     const { beers, hasMore } = this.state;
+    console.log(this.props);
     return (
       <div>
         <Header setSearchText={this.setSearchText} />
@@ -81,6 +83,18 @@ class BeerGrid extends Component {
             {/* {!beers.length ? (
               <h3 style={{ textAlign: "center" }}>No beers found</h3>
             ) : ( */}
+            {!!this.props.error && (
+              <div
+                style={{
+                  backgroundColor: "red",
+                  width: "100%",
+                  padding: "10px",
+                  textAlign: "center",
+                }}
+              >
+                {this.props.error}
+              </div>
+            )}
             <InfiniteScroll
               dataLength={beers.length}
               next={this.fetchBeers}
@@ -99,4 +113,9 @@ class BeerGrid extends Component {
   }
 }
 
-export default BeerGrid;
+const mapStateToProps = ({ favouriteBeersReducer: { error } }) => {
+  return {
+    error,
+  };
+};
+export default connect(mapStateToProps)(BeerGrid);
