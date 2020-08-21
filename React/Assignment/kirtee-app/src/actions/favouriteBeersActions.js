@@ -31,8 +31,8 @@ export const AddFavourites = (favouriteBeer) => {
   return async (dispatch) => {
     // const filtered = favouriteBeer.id % 2 ? favouriteBeer.id : "jpthohai";
     try {
-      const data = await fetchBeerById(favouriteBeer.id);
-      console.log(data);
+      await fetchBeerById(favouriteBeer.id);
+      // console.log(data);
       dispatch(AddFavouriteBeers(favouriteBeer));
       dispatch(DataFetchFailure(null));
     } catch (error) {

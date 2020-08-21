@@ -39,6 +39,11 @@ class Header extends Component {
                   Favourites
                 </Link>
               </li>
+              <li>
+                <Link to={routes.LOGIN} title="login">
+                  Login
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="header__bottom">

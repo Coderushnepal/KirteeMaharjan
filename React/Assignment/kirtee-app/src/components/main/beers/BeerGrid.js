@@ -73,7 +73,7 @@ class BeerGrid extends Component {
 
   render() {
     const { beers, hasMore } = this.state;
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
         <Header setSearchText={this.setSearchText} />
