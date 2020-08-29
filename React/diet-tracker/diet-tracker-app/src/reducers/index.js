@@ -1,3 +1,5 @@
 import { combineReducers } from "redux";
 
-export default combineReducers({ logReducer });
+import logRecipesReducer from "./logRecipesReducer";
+
+export default combineReducers({ logRecipesReducer });

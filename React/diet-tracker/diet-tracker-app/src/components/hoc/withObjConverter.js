@@ -5,6 +5,7 @@ const withObjConverter = (WrappedComponent) => {
     Converter = (arrayOfObj) => {
       try {
         return arrayOfObj.reduce((acc, item) => {
+          console.log(item);
           let key = !!item.title ? item.title.split(" ")[0] : null;
           return {
             ...acc,

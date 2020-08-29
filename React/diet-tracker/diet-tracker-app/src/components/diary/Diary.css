@@ -1,0 +1,32 @@
+.diary__status {
+  padding: 20px;
+  width: 100%;
+  background: linear-gradient(#9ab3c2bd, #9198e5);
+  background-repeat: no-repeat;
+}
+
+.diary__heading {
+  font-family: "Spectral", Arial, Helvetica, sans-serif;
+  font-size: 3em;
+  color: rgb(251, 251, 251);
+  text-shadow: 10px;
+}
+
+.calorie-board {
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 5px;
+  width: 150px;
+  height: 100px;
+  background-color: palevioletred;
+}
+
+.calorie-amt {
+  font-size: 34px;
+  color: white;
+}
+.calorie-label {
+  display: block;
+  text-transform: uppercase;
+  color: #ffffff;
+}

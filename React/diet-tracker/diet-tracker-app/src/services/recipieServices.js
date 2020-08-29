@@ -7,7 +7,7 @@ export const fetchRecipies = async (
   maxCalories,
   type
 ) => {
-  console.log(config);
+  // console.log(config);
   let params = {
     apiKey: config.spoonacular_apiKey,
     query: "pasta",
@@ -35,13 +35,13 @@ export const fetchRecipies = async (
     };
   }
 
-  console.log(params);
+  // console.log(params);
 
   const { data } = await httpSpoonacular.get("/recipes/complexSearch", {
     params,
   });
 
-  console.log("** Berservices **", data.results);
+  // console.log("** Berservices **", data.results);
   return data.results;
 };
 

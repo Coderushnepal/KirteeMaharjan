@@ -7,7 +7,7 @@ import { withObjConverter } from "../../hoc";
 
 import { Modal, Loader } from "../../commons";
 import { fetchRecipieNutritionWidgetByid } from "../../../services/recipieServices";
-import { sampleNutrientData } from "../../../constants/sampleNurientsData";
+// import { sampleNutrientData } from "../../../constants/sampleNurientsData";
 
 class RecipeModal extends Component {
   constructor(props) {

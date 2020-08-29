@@ -10,7 +10,7 @@ import config from "../config";
 //     "x-app-key": config.nix_apiKey,
 //   },
 // });
-console.log("config.base", config.spoonacular_baseURI);
+// console.log("config.base", config.spoonacular_baseURI);
 
 export const httpSpoonacular = axios.create({
   baseURL: config.spoonacular_baseURI,

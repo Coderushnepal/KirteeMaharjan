@@ -29,7 +29,10 @@ export default class Home extends Component {
       <div>
         <Header />
         <div className="container tags__container">
-          <div className="gp_title-head"> Tags : </div>
+          <div className="gp_title-head">
+            {" "}
+            Logging you daily calories made easy{" "}
+          </div>
           Home
           {/* {tagNames.map((tag, index) => (
             <Tag

@@ -1,0 +1,40 @@
+.nutrition__board {
+  width: 22%;
+  margin-right: 4px;
+  background-color: rgb(221, 160, 221);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.nutrition__board:last-child {
+  margin: 0;
+}
+
+.nutrition-row {
+  margin-left: 10px;
+}
+
+.food__img img {
+  max-height: 200px;
+}
+
+.food__title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.n-r-1 {
+  font-size: 1em;
+  line-height: 140%;
+}
+
+.n-r-2 {
+  font-size: 1.2em;
+  line-height: 140%;
+  font-weight: bold;
+}
+
+.delete-icon {
+  font-size: 18px;
+  cursor: pointer;
+}

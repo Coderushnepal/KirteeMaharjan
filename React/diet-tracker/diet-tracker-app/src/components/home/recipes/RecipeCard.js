@@ -1,14 +1,18 @@
 import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 import "./RecipeCard.css";
 
 import RecipeModal from "./RecipeModal";
+import { logRecipeActions } from "../../../actions";
 
 export class RecipeCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showModal: false,
+      isLogged: false,
     };
   }
 
@@ -23,9 +27,21 @@ export class RecipeCard extends Component {
     });
   };
 
+  handleLog = () => {
+    // console.log("Addd", this.props);
+    this.setState({
+      isLogged: true,
+    });
+    this.props.addRecipie(this.props.info);
+  };
+
+  showToast = () => {
+    console.log("Already Added To Diary!!!");
+  };
+
   render() {
     const { id, title, image, nutrition } = this.props.info;
-    const showModal = this.state.showModal;
+    const { showModal, isLogged } = this.state;
     // console.log("*** inside card ,this.props", this.props, id);
 
     return (
@@ -79,7 +95,12 @@ export class RecipeCard extends Component {
                   {" "}
                   read nutrients <i className="fas fa-arrow-right"></i>
                 </div>
-                <button className="btn-log"> Log food</button>
+                <button
+                  className="btn-log"
+                  onClick={isLogged ? this.showToast : this.handleLog}
+                >
+                  {isLogged ? "Added log" : "Log Food"}
+                </button>
               </div>
             </div>
           </div>
@@ -89,4 +110,10 @@ export class RecipeCard extends Component {
   }
 }
 
-export default RecipeCard;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ...bindActionCreators({ ...logRecipeActions }, dispatch),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(RecipeCard);

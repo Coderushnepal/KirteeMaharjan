@@ -40,7 +40,7 @@ export default class Recipes extends Component {
   fetchRecipes = async () => {
     let data = null;
     const { recipes, pageInfo, hasfilter, searchFor, filterValue } = this.state;
-    console.log("******  fetching data  ****");
+    // console.log("******  fetching data  ****");
     try {
       if (hasfilter) {
         this.setState({
@@ -56,7 +56,7 @@ export default class Recipes extends Component {
         filterValue.calorieValue,
         filterValue.mealTypeValue
       );
-      console.log("*** data after fetched", data, this.state);
+      // console.log("*** data after fetched", data, this.state);
 
       this.setState({
         recipes: hasfilter ? data : [...recipes, ...data],
@@ -71,7 +71,7 @@ export default class Recipes extends Component {
         hasMore: !(pageInfo.offset > 100),
       });
 
-      console.log(data, this.state);
+      // console.log(data, this.state);
     } catch (error) {
       console.log(error);
     }

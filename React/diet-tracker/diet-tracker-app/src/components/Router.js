@@ -16,7 +16,7 @@ export default function Router() {
         <Route exact path={routes.RECIPIES} component={Recipes} />
         <Route exact path={routes.DIARY} component={Diary} />
         <Route exact path={routes.LOGIN} component={Login} />
-        {/* <Route path={routes.HOME} component={Home} /> */}
+        <Route path={routes.HOME} component={Home} />
       </Switch>
     </BrowserRouter>
   );

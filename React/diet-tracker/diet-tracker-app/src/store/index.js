@@ -20,5 +20,5 @@ const middlewares =
     ? applyMiddleware(thunk, logger)
     : applyMiddleware(thunk);
 
-const enhancers = composeEnhancers();
+const enhancers = composeEnhancers(middlewares);
 export default createStore(rootReducers, enhancers);
