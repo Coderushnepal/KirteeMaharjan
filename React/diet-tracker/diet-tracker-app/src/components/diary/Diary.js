@@ -6,12 +6,27 @@ import "./Diary.css";
 
 import LoggedRecipe from "./LoggedRecipe";
 export class Diary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasfilter: false,
+      searchFor: [],
+    };
+  }
+
+  setSearchText = (searchFor) => {
+    this.setState({
+      searchFor,
+      hasfilter: true,
+    });
+  };
+
   render() {
     const { TotalCalorieIntake, loggedRecipes } = this.props;
     // console.log(loggedRecipes);
     return (
       <Fragment>
-        <Header />
+        <Header setSearchText={this.setSearchText} />
         <div className="container diary__container">
           <section className="diary__status d-flex justify-content-between align-items-center">
             <div className="diary__heading">Your Diary</div>
