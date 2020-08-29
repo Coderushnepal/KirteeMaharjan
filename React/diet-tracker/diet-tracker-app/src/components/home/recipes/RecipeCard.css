@@ -1,0 +1,74 @@
+.recipe__card {
+  /* border: 1px solid rgb(72, 72, 72); */
+  margin: 15px 0px;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 12px 0px rgba(145, 145, 145, 0.653);
+  -moz-box-shadow: 3px 3px 12px 0px rgba(145, 145, 145, 0.83);
+  box-shadow: 3px 3px 12px 0px rgba(145, 145, 145, 0.83);
+  width: 100%;
+}
+
+.img__container {
+  margin-left: 0;
+  padding-left: 0;
+  height: 100%;
+}
+
+.recipe__info {
+  padding: 15px 10px;
+}
+.recipe__title {
+  font-family: "Alata", sans-serif;
+  font-weight: 700px;
+  font-size: 20px;
+  line-height: 30px;
+  text-decoration-style: solid;
+}
+
+.nutrition__r1 {
+  height: 70%;
+  margin: 7px 0;
+}
+
+.nutrition__summary {
+  font-size: 12px;
+  text-emphasis: none;
+  padding: 0px 5px;
+}
+
+.nutrition__summary:first-child,
+.nutrition__summary:nth-child(2) {
+  border-right: 2px solid black;
+}
+
+.more-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+button.btn-log {
+  border: 1px solid #1b61ec;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 3px;
+  margin: 3px;
+  background-color: #3366cc;
+  color: white;
+}
+
+.btn-log:focus,
+.btn-log:hover {
+  outline: none;
+  border: 1px solid #3366cc;
+  background-color: white;
+  color: #3366cc;
+}
+
+.modal-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+}

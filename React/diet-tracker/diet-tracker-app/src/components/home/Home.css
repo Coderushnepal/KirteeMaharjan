@@ -1,0 +1,14 @@
+.tags__container {
+  /* background-color: rgb(251, 242, 226); */
+  /* border: 1px solid rgba(52, 52, 52, 0.748); */
+  padding: 10px 0px;
+}
+
+.gp_title-head {
+  font-size: 20px;
+  margin-bottom: 13px;
+}
+
+.gp_title-category {
+  font-size: 18px;
+}
