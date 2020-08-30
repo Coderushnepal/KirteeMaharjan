@@ -6,7 +6,7 @@ import { sampleRecipies } from "../../../constants/sampleRecipe";
 
 import { Header } from "../../commons";
 import RecipeCard from "./RecipeCard";
-
+import Loader from "../../commons/Loader";
 export default class Recipes extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +20,7 @@ export default class Recipes extends Component {
       searchFor: "",
       hasfilter: false,
       hasMore: true,
+      isLoading: false,
     };
   }
 
@@ -30,11 +31,10 @@ export default class Recipes extends Component {
       {
         searchFor,
         hasfilter: true,
+      },
+      () => {
+        this.fetchRecipes();
       }
-      // ,
-      // () => {
-      //   this.fetchRecipes();
-      // }
     );
   };
 
@@ -49,6 +49,7 @@ export default class Recipes extends Component {
             ...pageInfo,
             offset: 0,
           },
+          isLoading: true,
         });
       }
       data = await fetchRecipies(
@@ -70,6 +71,7 @@ export default class Recipes extends Component {
         },
         hasfilter: false,
         hasMore: !(pageInfo.offset > 100),
+        isLoading: false,
       });
 
       // console.log(data, this.state);
@@ -122,18 +124,19 @@ export default class Recipes extends Component {
     /**
      * fetch garda this.state destructure ma recipe halna na birsine !!!!!!!!!!!!!
      */
-    const { calorieValue, mealTypeValue } = this.state;
-    const recipes = sampleRecipies;
+    const { calorieValue, mealTypeValue, recipes, isLoading } = this.state;
+    // const recipes = sampleRecipies;
     return (
       <Fragment>
         <Header setSearchText={this.setSearchText}></Header>
+
         <div className="container body__container">
           <div className="row py-3" ref={(r) => (this.scrolParentRef = r)}>
             <aside className="col-md-3 order-1" id="sticky-sidebar">
               <div className="sticky-top">
                 {/* <div className="gp_title-head">
-                  <small>Filter by:</small>
-                </div> */}
+                <small>Filter by:</small>
+              </div> */}
                 <div className="ctg_contntainer ">
                   <div className="ctg-title">Max Calorie</div>
                   <select
@@ -168,13 +171,19 @@ export default class Recipes extends Component {
                 </div>
               </div>
             </aside>
-            <main className="col-md-9 order-2" id="main">
-              <div className="wrapper">
-                {recipes.map((item) => (
-                  <RecipeCard key={item.id} info={item} />
-                ))}
-              </div>
-            </main>
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <Fragment>
+                <main className="col-md-9 order-2" id="main">
+                  <div className="wrapper">
+                    {recipes.map((item) => (
+                      <RecipeCard key={item.id} info={item} />
+                    ))}
+                  </div>
+                </main>
+              </Fragment>
+            )}
           </div>
         </div>
       </Fragment>
