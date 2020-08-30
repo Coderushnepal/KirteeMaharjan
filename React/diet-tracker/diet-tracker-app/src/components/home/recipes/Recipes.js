@@ -30,10 +30,11 @@ export default class Recipes extends Component {
       {
         searchFor,
         hasfilter: true,
-      },
-      () => {
-        this.fetchRecipes();
       }
+      // ,
+      // () => {
+      //   this.fetchRecipes();
+      // }
     );
   };
 
@@ -121,8 +122,8 @@ export default class Recipes extends Component {
     /**
      * fetch garda this.state destructure ma recipe halna na birsine !!!!!!!!!!!!!
      */
-    const { calorieValue, mealTypeValue, recipes } = this.state;
-    // const recipes = sampleRecipies;
+    const { calorieValue, mealTypeValue } = this.state;
+    const recipes = sampleRecipies;
     return (
       <Fragment>
         <Header setSearchText={this.setSearchText}></Header>

@@ -8,13 +8,14 @@ import Home from "./home";
 import Recipes from "./home/recipes";
 import Login from "./commons/login";
 import Diary from "./diary";
+import PrivateRoute from "./PrivateRoute";
 
 export default function Router() {
   return (
     <BrowserRouter history={history}>
       <Switch>
         <Route exact path={routes.RECIPIES} component={Recipes} />
-        <Route exact path={routes.DIARY} component={Diary} />
+        <PrivateRoute exact path={routes.DIARY} component={Diary} />
         <Route exact path={routes.LOGIN} component={Login} />
         <Route path={routes.HOME} component={Home} />
       </Switch>

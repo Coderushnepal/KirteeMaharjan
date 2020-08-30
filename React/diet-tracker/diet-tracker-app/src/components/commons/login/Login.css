@@ -1,0 +1,32 @@
+.login__pg {
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(51, 51, 153);
+}
+
+.form__login {
+  /* color: white; */
+  background-color: white;
+  padding: 20px;
+  border-radius: 0.2em;
+  min-width: 300px;
+  max-width: 600px;
+  max-height: 400px;
+}
+
+.btn__login {
+  color: white;
+  background-color: rgb(89, 89, 221);
+}
+
+.btn__login:hover {
+  background-color: rgb(73, 73, 184);
+  color: white;
+}
+.create__acc {
+  font-size: 16px;
+}
+.create__acc:hover {
+  cursor: pointer;
+  color: rgb(73, 73, 184);
+}

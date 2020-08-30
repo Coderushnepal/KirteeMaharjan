@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -37,7 +37,7 @@ class LoggedRecipe extends React.Component {
             <div className="food__img col text-center">
               <img src={image} alt={title} style={{ objectFit: "cover" }} />
             </div>
-            {/* <div className="food__servings col-sm-2">{this.state.serving}</div> */}
+            {/*<div className="food__servings col-sm-2">{this.state.serving}</div> */}
           </div>
           <div className="col-md-6 d-flex justify-content-between nutrition-row">
             {nutrition.map((nutrition) => (
@@ -66,6 +66,7 @@ class LoggedRecipe extends React.Component {
   }
 }
 
+//   <div className="row">
 const enhanced = withObjConverter(LoggedRecipe);
 
 const mapDispatchToProps = (dispatch) => {

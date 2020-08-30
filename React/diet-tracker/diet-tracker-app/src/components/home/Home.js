@@ -12,6 +12,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       foods: [],
+      searchFor: "",
     };
   }
 
@@ -23,11 +24,17 @@ export default class Home extends Component {
     console.log(tagName);
   };
 
+  setSearchText = (searchFor) => {
+    this.setState({
+      searchFor,
+    });
+  };
+
   render() {
     console.log();
     return (
       <div>
-        <Header />
+        <Header setSearchText={this.setSearchText} />
         <div className="container tags__container">
           <div className="gp_title-head">
             {" "}
