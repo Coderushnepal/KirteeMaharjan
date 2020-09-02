@@ -1,0 +1,14 @@
+# node module
+node_modules
+
+# env
+.env
+
+# log files
+*.log
+
+dist
+
+# miscellenious files 
+day2.js
+logger-1.js
