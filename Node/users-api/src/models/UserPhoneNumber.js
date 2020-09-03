@@ -2,7 +2,7 @@ import connection from '../db';
 import snakeize from 'snakeize';
 import camelize from 'camelize';
 
-const table = 'users_phone_numbers';
+const table = 'user_phone_numbers';
 
 export async function getPhoneNumbersByUserId(userId) {
     const result = await connection
@@ -19,4 +19,4 @@ export async function add(params) {
     return camelize(result);
 }
 
-export function removePh() {}
+export function remove() {}

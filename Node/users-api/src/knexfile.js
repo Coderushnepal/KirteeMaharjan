@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 
 dotenv.config({ path: __dirname + '/../.env' });
 
-console.log(process.env.DB_CLIENT);
+// console.log(process.env.DB_CLIENT);
 
 const dbConfig = {
     client: process.env.DB_CLIENT,
@@ -16,6 +16,9 @@ const dbConfig = {
     migrations: {
         directory: './migrations',
         table: 'migrations'
+    },
+    seeds: {
+        directory: './seeds'
     }
 };
 

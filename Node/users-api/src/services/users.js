@@ -15,7 +15,6 @@ export async function getAllUsers() {
     logger.info('Fetching all users info');
 
     const users = await User.getAll();
-    console.log(users);
 
     const data = users.map((user) => {
         const phoneNumbers = Object.keys(user.phoneNumbers[0]).length ? user.phoneNumbers : [];

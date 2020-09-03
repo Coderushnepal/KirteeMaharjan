@@ -14,6 +14,7 @@ json_strip_nulls ( json_agg(
     ))
 ) AS phone_numbers
 FROM users u
-LEFT JOIN users_phone_numbers upn on u.id = upn.user_id
+LEFT JOIN user_phone_numbers upn on u.id = upn.user_id
 WHERE u.is_active= true
-GROUP BY u.id;`;
+GROUP BY u.id
+ORDER BY u.id ASC;`;

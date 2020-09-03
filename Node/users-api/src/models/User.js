@@ -26,10 +26,14 @@ export async function create(params) {
 }
 
 export async function remove(userId) {
-    const data = connection(table).update('is_active', false).where('id', userId).returning('*');
+    const data = connection(table).update('is_active', false).where({ id: userId }).returning('*');
     return data;
 }
 
 export function update(userId, params) {
-    return connection(table).update(snakeize(params)).where({ id: userId }).returning('*');
+    // console.log('params = ', params);
+    const data = connection(table).update(snakeize(params)).where('id', userId).returning('*');
+    // console.log('********************');
+    // console.log(data);
+    return data;
 }
