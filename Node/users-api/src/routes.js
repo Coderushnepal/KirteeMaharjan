@@ -1,33 +1,29 @@
-import fs from "fs";
-import { Router } from "express";
+import fs from 'fs';
+import { Router } from 'express';
 
-import * as endpoints from "./constants/endpoints";
-import * as userControllers from "./controllers/users";
-import { validateUserCreation, validateInfoAddition } from "./schema/user";
+import * as endpoints from './constants/endpoints';
+import * as userControllers from './controllers/users';
+import { validateUserCreation, validateUserUpdate, validateInfoAddition } from './schema/user';
 
 const router = Router();
 
-router.get("/", (request, response, next) => {
-  console.log("sent response for route '/'");
-  response.json({
-    name: "todo-app",
-    version: "1.0.0",
-  });
+router.get('/', (request, response, next) => {
+    console.log("sent response for route '/'");
+    response.json({
+        name: 'todo-app',
+        version: '1.0.0'
+    });
 });
 
 router.get(endpoints.GET_USERS, userControllers.getAllUsers);
 
 router.get(endpoints.GET_USERS_BY_ID, userControllers.getUserById);
 
-router.post(
-  endpoints.CREATE_USER,
-  validateUserCreation,
-  userControllers.createUser
-);
+router.post(endpoints.CREATE_USER, validateUserCreation, userControllers.createUser);
 
 router.delete(endpoints.DELETE_USER, userControllers.deleteUser);
 
-router.put(endpoints.UPDATE_USER, userControllers.updateUser);
+router.put(endpoints.UPDATE_USER, validateUserUpdate, userControllers.updateUser);
 
 // router.post("/infos", validateInfoAddition, (req, res, next) => {
 // const params = req.body;

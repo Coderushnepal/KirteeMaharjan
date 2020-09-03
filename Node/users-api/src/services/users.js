@@ -1,25 +1,35 @@
-import fs from "fs";
-import connection from "../db";
+import * as User from '../models/User';
+// import usersJsonData from '../data/users';
+import NotFoundError from '../utils/NotFoundError';
+import * as UserPhoneNumber from '../models/UserPhoneNumber';
 
-import logger from "../utils/logger";
-import * as User from "../models/User";
-import usersJsonData from "../data/users";
-import NotFoundError from "../utils/NotFoundError";
-import * as UserPhoneNumber from "../models/UserPhoneNumber";
-
+import logger from '../utils/logger';
+import connection from '../db';
+import snakeize from 'snakeize';
 /**
  * Fetch all users
  *
  */
 
 export async function getAllUsers() {
-  logger.info("Fetching all users info");
+    logger.info('Fetching all users info');
 
-  const data = await User.getAll();
-  return {
-    message: "List of all users",
-    data,
-  };
+    const users = await User.getAll();
+    console.log(users);
+
+    const data = users.map((user) => {
+        const phoneNumbers = Object.keys(user.phoneNumbers[0]).length ? user.phoneNumbers : [];
+
+        return {
+            ...user,
+            phoneNumbers
+        };
+    });
+
+    return {
+        message: 'List of all users',
+        data
+    };
 }
 
 /**
@@ -29,19 +39,25 @@ export async function getAllUsers() {
  */
 
 export async function getUserById(userId) {
-  logger.info(`Fetching user with id ${userId}`);
+    logger.info(`Fetching user with id ${userId}`);
 
-  const requestedUser = await User.getById(userId);
+    const requestedUser = await User.getById(userId);
+    console.log('Rwquested user =', requestedUser);
 
-  if (!requestedUser) {
-    logger.error(`Cannot find user with userId ${userId}`);
-    throw new NotFoundError(`Cannot find user with userId ${userId}`);
-  }
+    if (!requestedUser) {
+        logger.error(`Cannot find user with userId ${userId}`);
+        throw new NotFoundError(`Cannot find user with userId ${userId}`);
+    }
 
-  return {
-    message: `Information about user with userId ${userId}`,
-    data: requestedUser,
-  };
+    const phoneNumbers = await UserPhoneNumber.getPhoneNumbersByUserId(userId);
+
+    return {
+        message: `Information about user with userId ${userId}`,
+        data: {
+            ...requestedUser,
+            phoneNumbers
+        }
+    };
 }
 
 /**
@@ -51,30 +67,27 @@ export async function getUserById(userId) {
  */
 
 export async function createUsers(params) {
-  const { firstName, lastName, email, password, phoneNumbers } = params;
+    const { firstName, lastName, email, password, phoneNumbers } = params;
 
-  const userInsertData = await User.create({
-    firstName,
-    lastName,
-    email,
-    password,
-  });
+    const userInsertData = await User.create({
+        firstName,
+        lastName,
+        email,
+        password
+    });
 
-  const insertDataForPhoneNumbers = phoneNumbers.map((phone) => ({
-    userId: userInsertData.id,
-    phoneNumber: phone.number,
-    type: phone.type,
-  }));
+    const insertDataForPhoneNumbers = phoneNumbers.map((phone) => ({
+        userId: userInsertData.id,
+        phoneNumber: phone.number,
+        type: phone.type
+    }));
 
-  const phoneNumberInsertedData = await UserPhoneNumber.add(
-    insertDataForPhoneNumbers
-  );
-  console.log(phoneNumberInsertedData);
+    const phoneNumberInsertedData = await UserPhoneNumber.add(insertDataForPhoneNumbers);
 
-  return {
-    message: "New user added ",
-    params,
-  };
+    return {
+        message: 'New user added ',
+        params
+    };
 }
 
 /**
@@ -83,32 +96,16 @@ export async function createUsers(params) {
  * @param userId
  */
 
-export function deleteUser(userId) {
-  logger.info(`Deleting user with userId ${userId}`);
+export async function deleteUser(userId) {
+    logger.info(`Deleting user with userId ${userId}`);
 
-  const doesUserExist = usersJsonData.find((user) => user.id === userId);
+    await verifyUserExistence(userId);
 
-  if (!doesUserExist) {
-    logger.error(`User with user id ${userId} does not exist`);
-    throw new NotFoundError(`User with user id ${userId} does not exist`);
-  }
+    await User.remove(userId);
 
-  let deletedUser = null;
-
-  const updatedUserList = usersJsonData.filter((user) => {
-    if (user.id === userId) {
-      console.log("true");
-      deletedUser = user;
-    }
-    return user.id !== userId;
-  });
-
-  usersJsonData = updatedUserList;
-
-  return {
-    message: "successfully deleted",
-    data: deletedUser,
-  };
+    return {
+        message: `deleted user with id ${userId}`
+    };
 }
 
 /**
@@ -118,30 +115,38 @@ export function deleteUser(userId) {
  * @param params
  */
 
-export function updateUser(userId, params) {
-  logger.info(`Updating users with userid ${userId}`);
+export async function updateUser(userId, params) {
+    logger.info(`Updating users with userid ${userId}`);
 
-  const doesUserExist = usersJsonData.find((user) => user.id === userId);
+    const result = await verifyUserExistence(userId);
 
-  if (!doesUserExist) {
-    logger.info(`User not found with userId ${userId}`);
-    throw new NotFoundError(`User not found with userId  ${userId}`);
-  }
+    await User.update(userId, params);
 
-  const updatedUser = usersJsonData.map((user) => {
-    if (userId === user.id) {
-      return {
-        ...user,
-        ...params,
-      };
+    return {
+        message: `successfully updated user wit id ${userId}`,
+        data: {
+            ...result,
+            ...params
+        }
+    };
+}
+
+/**
+ * Verifying user exixtence
+ *
+ * @param userId
+ *
+ */
+
+export async function verifyUserExistence(userId) {
+    logger.info(`fetching user information with id ${userId}`);
+
+    const result = await User.getById(userId);
+
+    if (!result) {
+        logger.error(`User with user id ${userId} does not exist`);
+        throw new NotFoundError(`User with user id ${userId} does not exist`);
     }
-    return user;
-  });
 
-  usersJsonData = updateUser;
-
-  return {
-    message: `successfully updated user wit id ${userId}`,
-    data: updateUser,
-  };
+    return result;
 }

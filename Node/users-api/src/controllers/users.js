@@ -1,4 +1,4 @@
-import * as userServices from "../services/users";
+import * as userServices from '../services/users';
 
 /**
  *Controller to get all the users
@@ -9,10 +9,10 @@ import * as userServices from "../services/users";
  */
 
 export function getAllUsers(req, res, next) {
-  const data = userServices
-    .getAllUsers()
-    .then((data) => res.json(data))
-    .catch((err) => next(err));
+    const data = userServices
+        .getAllUsers()
+        .then((data) => res.json(data))
+        .catch((err) => next(err));
 }
 
 /**
@@ -24,10 +24,10 @@ export function getAllUsers(req, res, next) {
  */
 
 export function getUserById(req, res, next) {
-  userServices
-    .getUserById(+req.params.userId)
-    .then((data) => res.json(data))
-    .catch((err) => next(err));
+    userServices
+        .getUserById(+req.params.userId)
+        .then((data) => res.json(data))
+        .catch((err) => next(err));
 }
 
 /**
@@ -39,10 +39,10 @@ export function getUserById(req, res, next) {
  */
 
 export function createUser(req, res, next) {
-  userServices
-    .createUsers(req.body)
-    .then((data) => res.json(data))
-    .catch((err) => next(err));
+    userServices
+        .createUsers(req.body)
+        .then((data) => res.json(data))
+        .catch((err) => next(err));
 }
 
 /**
@@ -54,13 +54,10 @@ export function createUser(req, res, next) {
  */
 
 export function deleteUser(req, res, next) {
-  console.log(+req.params.userId);
-  try {
-    const data = userServices.deleteUser(+req.params.userId);
-    res.json(data);
-  } catch (err) {
-    next(err);
-  }
+    userServices
+        .deleteUser(+req.params.userId)
+        .then((data) => res.json(data))
+        .catch((error) => next(error));
 }
 
 /**
@@ -72,10 +69,8 @@ export function deleteUser(req, res, next) {
  */
 
 export function updateUser(req, res, next) {
-  try {
-    const data = userServices.updateUser(+req.params.userId, req.body);
-    res.json(data);
-  } catch (err) {
-    next(err);
-  }
+    userServices
+        .updateUser(+req.params.userId, req.body)
+        .then((data) => res.json(data))
+        .catch((error) => next(error));
 }
