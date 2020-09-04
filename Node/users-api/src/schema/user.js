@@ -22,16 +22,14 @@ const UPDATE_USER_SHEMA = joi
     .keys({
         firstName: joi.string().max(20).min(0),
         lastName: joi.string().max(20).min(0)
-        // phoneNumbers: joi
-        //     .array()
-        //     .required()
-        //     .min(0)
-        //     .items(
-        //         joi.object().keys({
-        //             number: joi.number().min(9000000000).max(9999999999).required(),
-        //             type: joi.string().valid('home', 'cell', 'work').required()
-        //         })
-        //     )
+    })
+    .min(1);
+
+const LOGIN_SHEMA = joi
+    .object()
+    .keys({
+        email: joi.string().max(100).min(0).required(),
+        password: joi.string().max(200).min(0).required()
     })
     .min(1);
 
@@ -66,6 +64,21 @@ export const validateUserUpdate = (req, res, next) => {
         next(error);
     }
 };
+
+export const validateLogin = (req, res, next) => {
+    try {
+        joi.assert(req.body, LOGIN_SHEMA);
+
+        next();
+    } catch (error) {
+        next(error);
+    }
+};
+
+/**
+ * Assignment: Create on given conditions Schema
+ *
+ */
 
 const CREATE_INFO_SHEMA = joi.object().keys({
     title: joi.string().required().min(0).max(200),

@@ -3,8 +3,6 @@ const dotenv = require('dotenv');
 
 dotenv.config({ path: __dirname + '/../.env' });
 
-// console.log(process.env.DB_CLIENT);
-
 const dbConfig = {
     client: process.env.DB_CLIENT,
     connection: {

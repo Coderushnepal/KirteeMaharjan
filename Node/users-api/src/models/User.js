@@ -20,8 +20,22 @@ export async function getById(id) {
     return result ? camelize(result) : null;
 }
 
+export async function getUserByEmail(email) {
+    console.log('before checking ', email);
+    const [result] = await connection
+        .select('*')
+        .from(table)
+        .where({ email })
+        .where('is_active', true);
+
+    console.log('result check by email', result);
+
+    return result ? camelize(result) : null;
+}
+
 export async function create(params) {
     const [data] = await connection.insert(snakeize(params)).into(table).returning('*');
+    console.log(data);
     return camelize(data);
 }
 

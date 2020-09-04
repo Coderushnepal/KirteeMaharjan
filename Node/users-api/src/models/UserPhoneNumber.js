@@ -15,8 +15,12 @@ export async function getPhoneNumbersByUserId(userId) {
 
 export async function add(params) {
     const data = snakeize(params);
-    const result = await connection.batchInsert(table, data);
+    const result = await connection
+        .batchInsert(table, data)
+        .returning('id', 'phone_number', 'type');
     return camelize(result);
 }
 
-export function remove() {}
+// export async function remove(userId) {
+//     await
+// }

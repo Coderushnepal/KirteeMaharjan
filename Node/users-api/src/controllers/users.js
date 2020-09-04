@@ -61,7 +61,7 @@ export function deleteUser(req, res, next) {
 }
 
 /**
- * Controler to update user
+ * Controller to update user
  *
  * @param {*} req
  * @param {*} res
@@ -71,6 +71,21 @@ export function deleteUser(req, res, next) {
 export function updateUser(req, res, next) {
     userServices
         .updateUser(+req.params.userId, req.body)
+        .then((data) => res.json(data))
+        .catch((error) => next(error));
+}
+
+/**
+ * Controller for user login
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+
+export function login(req, res, next) {
+    userServices
+        .login(req.body)
         .then((data) => res.json(data))
         .catch((error) => next(error));
 }

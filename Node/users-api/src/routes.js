@@ -3,7 +3,12 @@ import { Router } from 'express';
 
 import * as endpoints from './constants/endpoints';
 import * as userControllers from './controllers/users';
-import { validateUserCreation, validateUserUpdate, validateInfoAddition } from './schema/user';
+import {
+    validateUserCreation,
+    validateUserUpdate,
+    validateInfoAddition,
+    validateLogin
+} from './schema/user';
 
 const router = Router();
 
@@ -18,6 +23,8 @@ router.get('/', (request, response, next) => {
 router.get(endpoints.GET_USERS, userControllers.getAllUsers);
 
 router.get(endpoints.GET_USERS_BY_ID, userControllers.getUserById);
+
+router.post(endpoints.LOGIN, validateLogin, userControllers.login);
 
 router.post(endpoints.CREATE_USER, validateUserCreation, userControllers.createUser);
 
