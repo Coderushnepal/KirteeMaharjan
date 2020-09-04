@@ -15,7 +15,7 @@ const router = Router();
 router.get('/', (request, response, next) => {
     console.log("sent response for route '/'");
     response.json({
-        name: 'todo-app',
+        name: 'users-app',
         version: '1.0.0'
     });
 });
