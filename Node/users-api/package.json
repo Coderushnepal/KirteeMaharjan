@@ -7,11 +7,11 @@
     "scripts": {
         "start": "nodemon --watch src/ --exec babel-node src/",
         "build": "rimraf dist && babel src/ --copy-files --out-dir dist",
-        "migrate": "yarn knex migrate:latest --knexfile src/knexfile.js",
-        "migrate:make": "yarn knex migrate:make --knexfile src/knexfile.js",
-        "rollback": "yarn knex migrate:rollback --knexfile src/knexfile.js",
-        "seed": "yarn knex seed:run --knexfile src/knexfile.js",
-        "prettify": "yarn prettier --write **/*.{js,json,md}"
+        "migrate": " knex migrate:latest --knexfile src/knexfile.js",
+        "migrate:make": " knex migrate:make --knexfile src/knexfile.js",
+        "rollback": "knex migrate:rollback --knexfile src/knexfile.js",
+        "seed": "knex seed:run --knexfile src/knexfile.js",
+        "prettify": "prettier --write **/*.{js,json,md}"
     },
     "dependencies": {
         "bcrypt": "^5.0.0",

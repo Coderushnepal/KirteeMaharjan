@@ -3,6 +3,7 @@ import { Router } from 'express';
 
 import * as endpoints from './constants/endpoints';
 import * as userControllers from './controllers/users';
+
 import {
     validateUserCreation,
     validateUserUpdate,
