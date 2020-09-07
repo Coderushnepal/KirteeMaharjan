@@ -76,3 +76,15 @@ export function updateTodo(req, res, next) {
     .then(data => res.json(data))
     .catch(err => next(err));
 }
+
+/**
+ * Login user
+ *
+ * @param {*} params
+ */
+export function login(req, res, next) {
+  console.log('USersController');
+  UserServices.login(req.body)
+    .then(data => res.json(data))
+    .catch(err => next(err));
+}

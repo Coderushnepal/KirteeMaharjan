@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-import { validateUserCreation } from './schema/Users';
 import * as UserControllers from './controllers/users';
+import { validateUserCreation, validateUserLogin } from './schema/Users';
 import { validateTodoAddition, validateTodoUpdate } from './schema/Todos';
 
 const router = Router();
@@ -24,5 +24,7 @@ router.post('/users/:userId/todos', validateTodoAddition, UserControllers.addTod
 router.delete('/users/:userId/todos/:todoId', UserControllers.deleteTodo);
 
 router.put('/users/:userId/todos/:todoId', validateTodoUpdate, UserControllers.updateTodo);
+
+router.post('/login', validateUserLogin, UserControllers.login);
 
 export default router;

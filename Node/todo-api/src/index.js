@@ -19,7 +19,6 @@ dotenv.config();
 app.use(bodyParser.json());
 app.use(loggingMiddleware);
 app.use(morgan('tiny'));
-
 app.use(routes);
 
 app.use(genericErrorHandler);

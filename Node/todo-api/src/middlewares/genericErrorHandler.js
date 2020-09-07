@@ -9,7 +9,7 @@ export default function genericErrorHandler(err, req, res, next) {
   // console.log('*********** ERROR ***********', err);
 
   if (err.isJoi) {
-    res.status(HttpStatusCode.BAD_REQUEST).json({
+    return res.status(HttpStatusCode.BAD_REQUEST).json({
       code: HttpStatusCode.BAD_REQUEST,
       err: err.name,
       message: err.details[0].message
@@ -17,7 +17,7 @@ export default function genericErrorHandler(err, req, res, next) {
   }
 
   if (err instanceof NotFoundError) {
-    res.status(HttpStatusCode.NOT_FOUND).json({
+    return res.status(HttpStatusCode.NOT_FOUND).json({
       code: HttpStatusCode.NOT_FOUND,
       err: HttpStatusCode.getStatusText(HttpStatusCode.NOT_FOUND),
       message: err.message
@@ -25,7 +25,7 @@ export default function genericErrorHandler(err, req, res, next) {
   }
 
   if (err instanceof UnauthoroziedError) {
-    res.status(HttpStatusCode.UNAUTHORIZED).json({
+    return res.status(HttpStatusCode.UNAUTHORIZED).json({
       code: HttpStatusCode.UNAUTHORIZED,
       err: HttpStatusCode.getStatusText(HttpStatusCode.UNAUTHORIZED),
       message: err.message
@@ -33,7 +33,7 @@ export default function genericErrorHandler(err, req, res, next) {
   }
 
   if (err instanceof BadRequestError) {
-    res.status(HttpStatusCode.BAD_REQUEST).json({
+    return res.status(HttpStatusCode.BAD_REQUEST).json({
       code: HttpStatusCode.BAD_REQUEST,
       err: HttpStatusCode.getStatusText(HttpStatusCode.BAD_REQUEST),
       message: err.message
@@ -45,7 +45,7 @@ export default function genericErrorHandler(err, req, res, next) {
     : HttpStatusCode.getStatusText(HttpStatusCode.INTERNAL_SERVER_ERROR);
 
   if (err) {
-    res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).json({
+    return res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).json({
       code: HttpStatusCode.INTERNAL_SERVER_ERROR,
       err: HttpStatusCode.getStatusText(HttpStatusCode.INTERNAL_SERVER_ERROR),
       message: errMsg
