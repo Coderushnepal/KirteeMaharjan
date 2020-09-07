@@ -1,0 +1,41 @@
+{
+  "name": "todo-api",
+  "version": "1.0.0",
+  "description": "simple api for todo app",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --watch src/ --exec babel-node src/",
+    "build": "rimraf dist && babel src/ --copy-files --out-dir dist",
+    "lint": "eslint src --fix",
+    "prettify": "yarn prettier --loglevel silent --write **/*.{js,json,md}",
+    "migration:make": "yarn knex migrate:make --knexfile src/knexfile.js",
+    "migrate": "yarn knex migrate:latest --knexfile src/knexfile.js",
+    "rollback": "yarn knex migrate:rollback --knexfile src/knexfile.js",
+    "seed": " knex seed:run --knexfile src/knexfile.js",
+    "seed:make": "yarn knex seed:make --knexfile src/knexfile.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "camelize": "^1.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.2.1",
+    "knex": "^0.21.5",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "pg": "^8.3.3",
+    "snakeize": "^0.1.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/register": "^7.11.5",
+    "eslint": "^7.8.1",
+    "prettier": "^2.1.1",
+    "rimraf": "^3.0.2"
+  }
+}
