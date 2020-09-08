@@ -1,13 +1,13 @@
 import joi from 'joi';
 
 const ADD_TODO_SCHEMA = joi.object().keys({
-  todoText: joi.string().max(500).min(0).required()
+  todoText: joi.string().max(500).min(0).required().allow(' ')
 });
 
 const UPDATE_TODO_SCHEMA = joi
   .object()
   .keys({
-    todoText: joi.string().max(500).min(0),
+    todoText: joi.string().max(500).min(0).allow(' '),
     isCompleted: joi.boolean()
   })
   .min(1);

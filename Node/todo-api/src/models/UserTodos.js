@@ -16,7 +16,7 @@ export async function getAll(userId) {
     .from('user_todos')
     .where({ user_id: userId, is_active: true });
 
-  return result.length ? camelize(result) : null;
+  return result.length ? camelize(result) : [];
 }
 
 /**

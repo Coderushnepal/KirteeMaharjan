@@ -1,8 +1,10 @@
 import logger from '../utils/logger';
+import { generateToken } from '../utils/strings';
 import { hashPassword, checkPassword } from '../utils/crypt';
 import NotFoundError from '../utils/NotFoundError';
 import BadRequestError from '../utils/BadRequestError';
 import { getByEmail, createUser, getById } from '../models/Users';
+import { saveToken } from '../models/UserSessions';
 
 /**
  * Create  user.
@@ -25,7 +27,10 @@ export async function CreateUser(payload) {
   const data = await createUser({ ...payload, password: hash });
 
   return {
-    data,
+    data: {
+      ...data,
+      password: undefined
+    },
     message: 'New user created'
   };
 }
@@ -52,7 +57,18 @@ export async function login(params) {
     throw new BadRequestError(`Email or password is incorrect`);
   }
 
+  const token = generateToken();
+
+  console.log(token);
+
+  const data = await saveToken(existUser.id, token);
+  console.log(data);
+
   return {
+    data: {
+      ...data,
+      token
+    },
     message: 'successfully loged in'
   };
 }

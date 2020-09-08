@@ -9,7 +9,7 @@
     "build": "rimraf dist && babel src/ --copy-files --out-dir dist",
     "lint": "eslint src --fix",
     "prettify": "yarn prettier --loglevel silent --write **/*.{js,json,md}",
-    "migration:make": "yarn knex migrate:make --knexfile src/knexfile.js",
+    "migrate:make": "yarn knex migrate:make --knexfile src/knexfile.js",
     "migrate": "yarn knex migrate:latest --knexfile src/knexfile.js",
     "rollback": "yarn knex migrate:rollback --knexfile src/knexfile.js",
     "seed": " knex seed:run --knexfile src/knexfile.js",

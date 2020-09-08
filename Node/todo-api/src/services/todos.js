@@ -14,11 +14,6 @@ export async function getAllTodos(userId) {
 
   const data = await getAll(userId);
 
-  if (!data) {
-    logger.error(`No todos found for user with id ${userId}`);
-    throw new NotFoundError(`No todos found for user with id ${userId}`);
-  }
-
   return {
     data,
     message: `List of todos for user with id ${userId}`

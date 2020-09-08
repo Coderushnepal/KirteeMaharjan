@@ -1,6 +1,10 @@
-// users api
-export const GET_USER_BY_ID = '/users/:userId';
+//users api
+export const CREATE_USER = '/users';
+export const LOGIN = '/login';
 
-// todos api
+//todos api
 export const GET_ALL_TODOS = '/users/:userId/todos';
 export const GET_TODO_BY_ID = '/users/:userId/todos/:todoId';
+export const ADD_TODO = '/users/:userId/todos';
+export const REMOVE_TODO = '/users/:userId/todos/:todoId';
+export const UPDATE_TODO = '/users/:userId/todos/:todoId';

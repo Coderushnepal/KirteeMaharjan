@@ -59,6 +59,7 @@ export function addTodo(req, res, next) {
  * @param {*} next
  */
 export function deleteTodo(req, res, next) {
+  console.log('Delete controller');
   TodoServices.deleteTodo(+req.params.userId, +req.params.todoId)
     .then(data => res.json(data))
     .catch(err => next(err));
