@@ -40,9 +40,7 @@ export async function getById(userId, id) {
  * @param {object} payload
  */
 export async function add(payload) {
-  console.log(payload);
   const [result] = await connection.insert(snakeize(payload)).into(TABLE).returning('*');
-  console.log(result);
   return camelize(result);
 }
 

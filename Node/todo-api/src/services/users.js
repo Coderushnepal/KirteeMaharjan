@@ -1,11 +1,11 @@
 import logger from '../utils/logger';
-import { generateToken } from '../utils/strings';
-import { hashPassword, checkPassword } from '../utils/crypt';
+import { generateToken } from '../utils/jwt';
+import { saveToken } from '../models/UserSessions';
 import NotFoundError from '../utils/NotFoundError';
 import BadRequestError from '../utils/BadRequestError';
+import { hashPassword, checkPassword } from '../utils/crypt';
 import { getByEmail, createUser, getById } from '../models/Users';
-import { saveToken } from '../models/UserSessions';
-
+// import { generateToken } from '../utils/strings';
 /**
  * Create  user.
  *
@@ -43,30 +43,36 @@ export async function CreateUser(payload) {
 export async function login(params) {
   const { email, password } = params;
 
-  const existUser = await getByEmail(email);
-  console.log(existUser);
-  if (!existUser) {
+  const user = await getByEmail(email);
+  if (!user) {
     logger.error('Email or Password is incorrect');
     throw new BadRequestError(`Email or password is incorrect`);
   }
 
-  const isPasswordValid = checkPassword(password, existUser.password);
+  const isPasswordValid = checkPassword(password, user.password);
 
   if (!isPasswordValid) {
     logger.error('Email or Password is incorrect');
     throw new BadRequestError(`Email or password is incorrect`);
   }
 
-  const token = generateToken();
+  // -- using random string generator
+  // const token = generateToken();
 
-  console.log(token);
+  const tokenPayload = {
+    id: user.id,
+    email: user.email,
+    username: `${user.firstName} ${user.lastName}`
+  };
 
-  const data = await saveToken(existUser.id, token);
-  console.log(data);
+  //generate token from jwt
+  const token = generateToken(tokenPayload);
+
+  await saveToken(user.id, token);
 
   return {
     data: {
-      ...data,
+      ...tokenPayload,
       token
     },
     message: 'successfully loged in'

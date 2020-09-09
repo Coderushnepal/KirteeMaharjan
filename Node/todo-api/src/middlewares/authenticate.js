@@ -1,3 +1,10 @@
+// middleware to compare recieved token in request header
+// to that with token stored in database
+
+// later middleware given by express-jwt for verifying token
+// is used instead
+// filename: jwtAuthentication.js
+
 import { verifyToken } from '../services/authenticate';
 
 export default async function authenticate(req, res, next) {

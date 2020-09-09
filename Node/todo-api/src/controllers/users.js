@@ -20,7 +20,7 @@ export function createUser(req, res, next) {
  * @param {*} next
  */
 export function getAllTodos(req, res, next) {
-  TodoServices.getAllTodos(+req.params.userId)
+  TodoServices.getAllTodos(+req.user.id)
     .then(data => res.json(data))
     .catch(err => next(err));
 }
@@ -33,7 +33,7 @@ export function getAllTodos(req, res, next) {
  * @param {*} next
  */
 export function getSpecificTodo(req, res, next) {
-  TodoServices.getTodoById(+req.params.userId, +req.params.todoId)
+  TodoServices.getTodoById(+req.user.id, +req.params.todoId)
     .then(data => res.json(data))
     .catch(err => next(err));
 }
@@ -46,7 +46,7 @@ export function getSpecificTodo(req, res, next) {
  * @param {*} next
  */
 export function addTodo(req, res, next) {
-  TodoServices.addTodo(+req.params.userId, req.body)
+  TodoServices.addTodo(+req.user.id, req.body)
     .then(data => res.json(data))
     .catch(err => next(err));
 }
@@ -59,8 +59,7 @@ export function addTodo(req, res, next) {
  * @param {*} next
  */
 export function deleteTodo(req, res, next) {
-  console.log('Delete controller');
-  TodoServices.deleteTodo(+req.params.userId, +req.params.todoId)
+  TodoServices.deleteTodo(+req.user.id, +req.params.todoId)
     .then(data => res.json(data))
     .catch(err => next(err));
 }
@@ -73,7 +72,7 @@ export function deleteTodo(req, res, next) {
  * @param {*} next
  */
 export function updateTodo(req, res, next) {
-  TodoServices.updateTodo(+req.params.userId, +req.params.todoId, req.body)
+  TodoServices.updateTodo(+req.user.id, +req.params.todoId, req.body)
     .then(data => res.json(data))
     .catch(err => next(err));
 }
@@ -84,7 +83,6 @@ export function updateTodo(req, res, next) {
  * @param {*} params
  */
 export function login(req, res, next) {
-  console.log('USersController');
   UserServices.login(req.body)
     .then(data => res.json(data))
     .catch(err => next(err));

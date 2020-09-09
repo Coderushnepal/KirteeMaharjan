@@ -1,8 +1,9 @@
 import { Router } from 'express';
 
 import * as endpoints from './constants/endpoints';
-import authenticate from './middlewares/authenticate';
 import * as UserControllers from './controllers/users';
+// import authenticate from './middlewares/authenticate';
+import authenticate from './middlewares/jwtAuthenticcate';
 import { validateUserCreation, validateUserLogin } from './schema/Users';
 import { validateTodoAddition, validateTodoUpdate } from './schema/Todos';
 

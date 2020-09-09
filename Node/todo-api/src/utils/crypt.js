@@ -1,4 +1,4 @@
-import bcrypt, { compareSync, hash } from 'bcrypt';
+import bcrypt, { compareSync } from 'bcrypt';
 
 /**
  *
@@ -15,6 +15,6 @@ export function hashPassword(password) {
  * @param {string} hash
  * @returns {boolean}
  */
-export function checkPassword(password, hash) {
-  return compareSync(password, hash);
+export function checkPassword(password, hashedPassword) {
+  return compareSync(password, hashedPassword);
 }
