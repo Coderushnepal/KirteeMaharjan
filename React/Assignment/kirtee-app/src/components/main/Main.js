@@ -1,8 +1,9 @@
 import React from 'react';
 
+import BeerGrid from './beers/BeerGrid';
 const Main = () => (
-	<div>
-		<h2>inside main</h2>
+	<div className="wrapper">
+		<BeerGrid />
 	</div>
 );
 
