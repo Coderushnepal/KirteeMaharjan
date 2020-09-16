@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+$base-font-size: 16px;
+$font-size-sm: $base-font-size - 2px;
+$font-size-md: $base-font-size;
+$font-size-lg: $base-font-size + 2px;
+
+//colors
+$white: #fff;
+$black: #5e5e5a;
+$dark-black: #000;
+$gray: #c5c6c9;
+$red: #d0021b;
+$blue: #3a539b;
+$yellow: #f7ca18;
+$green: #36d7b7;
+$orange: #f79400;
+
+//Message Colors
+$error: lighten($red, 5%) !default;
+$success: $green !default;
+$edit: $yellow !default;
+
+// ui-colors
+$primary-color: #3b7dd8;
+$secondary-color: #8dbdff;
+
+//color pallets
+$pallete: (
+  blue-colors: (
+    blue-d1: #3b7dd8,
+    blue-d2: #4a91f2,
+    blue-d3: #64a1f4,
+    blue-d4: #8dbdff,
+    blue-d5: #bfd6f6,
+  ),
+);
+
+//Breakpoints
+$sm-device: 576px;
+$md-device: 768px;
+$lg-device: 992px;
+$xl-device: 1200px;
+
+//max-width
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+) !default;
+
+//fonts
+$font-family-body: "Noto Sans JP", "Helvatica", "sans-serif";
+$font-family-source-sans: "Source Sans Pro", "Helvatica", "sans-serif";
+$font-family-logo: "Pacifico", cursive, "Arial";

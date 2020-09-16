@@ -1,0 +1,12 @@
+@import "../mixins/_box-shadow";
+
+%margin-tb {
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.Board {
+  padding: 10px;
+  @extend %margin-tb;
+  @include box-shadow-all;
+}

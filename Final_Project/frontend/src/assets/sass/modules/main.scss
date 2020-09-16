@@ -1,0 +1,112 @@
+@import "../resets";
+@import "../variable";
+@import "../config";
+@import "../mixins/manifest";
+
+@function weight($weight-value) {
+  @return map-get($font-weights, $weight-value);
+}
+
+body {
+  height: 100vh;
+  font-size: $font-size-sm;
+  background-color: $white;
+  font-family: $font-family-body;
+
+  @include mq(md) {
+    font-size: $font-size-md;
+  }
+}
+
+// & equals parent
+.container {
+  width: 100%;
+  padding: 0 12px;
+  margin: 0 auto;
+
+  @include mq(md) {
+    padding: 0px;
+    max-width: map-get($container-max-widths, md);
+  }
+  @include mq(lg) {
+    max-width: map-get($container-max-widths, lg);
+  }
+  @include mq(xl) {
+    max-width: map-get($container-max-widths, xl);
+  }
+}
+
+.header-wrapper {
+  width: 100%;
+  background-color: $blue;
+  // background-color: $primary-blue;
+}
+
+.header {
+  font-size: $font-size-sm;
+
+  &-top {
+    padding-top: 8px;
+    padding-left: 15px;
+
+    @include flexBetween(row);
+  }
+}
+
+.nav {
+  @include flexBetween(row);
+
+  ul {
+    width: 100%;
+    list-style: none;
+    margin: 0px;
+
+    &:after {
+      content: " ";
+      display: table;
+      clear: both;
+    }
+
+    li {
+      float: left;
+      display: block;
+      height: 100%;
+
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+}
+
+main {
+  // background-color: blue;
+  margin-top: 1.5rem !important;
+
+  .box {
+    // padding: 0 10px;
+    margin-bottom: 1.5em;
+
+    @include box-shadow-all;
+
+    &-title {
+      letter-spacing: 2px;
+      padding: 0.7rem;
+      color: $white;
+      background-color: $primary-color;
+      border: 1px solid darken($primary-color, 10%);
+      @include box-shadow-bottom;
+
+      &__name {
+        font-size: 1.2rem;
+        font-family: $font-family-source-sans;
+        font-weight: weight(bold);
+      }
+    }
+
+    &-content {
+      min-height: 100px;
+      padding: 0.7rem;
+    }
+  }
+}

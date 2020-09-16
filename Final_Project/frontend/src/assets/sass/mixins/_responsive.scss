@@ -1,0 +1,24 @@
+@import "./config";
+
+@mixin mq($device) {
+  @if $device == sm {
+    @media only screen and (min-width: $sm-device) {
+      @content;
+    }
+  }
+  @if $device == md {
+    @media only screen and (min-width: $md-device) {
+      @content;
+    }
+  }
+  @if $device == lg {
+    @media only screen and (min-width: $lg-device) {
+      @content;
+    }
+  }
+  @if $device == xl {
+    @media only screen and (min-width: $xl-device) {
+      @content;
+    }
+  }
+}
