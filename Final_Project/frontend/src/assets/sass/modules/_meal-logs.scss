@@ -1,1 +1,42 @@
 @import "../mixins/manifest";
+
+.day {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  @include flex(row);
+
+  div {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  div i {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  &--display {
+    font-size: 2rem;
+  }
+}
+
+.fa-calendar:hover {
+  color: $orange;
+}
+
+.calender {
+  border: 2px solid $black;
+  background-color: white;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+
+  // style for DayPicker from react day picker
+  div.DayPicker-wrapper {
+    padding-right: 10px;
+  }
+}

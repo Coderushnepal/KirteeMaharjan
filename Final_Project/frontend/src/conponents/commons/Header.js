@@ -30,7 +30,7 @@ function Header() {
                 <Link to={routers.ADD_FOODS}>Foods</Link>
               </li>
               <li className="menu-nav__item">
-                <Link to={routers.PROFILE}>Stats</Link>
+                <Link to={routers.STATS}>Stats</Link>
               </li>
               <li className="menu-nav__item" id="nav__item-acc">
                 <Link to={routers.PROFILE}>Account</Link>
