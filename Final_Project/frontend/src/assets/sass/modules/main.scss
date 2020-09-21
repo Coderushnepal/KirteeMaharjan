@@ -7,6 +7,10 @@
   @return map-get($font-weights, $weight-value);
 }
 
+#root {
+  height: 100%;
+}
+
 body {
   height: 100vh;
   font-size: $font-size-sm;
@@ -79,6 +83,7 @@ body {
   }
 }
 
+// MealLog.js
 main {
   // background-color: blue;
   margin-top: 1.5rem !important;
@@ -89,7 +94,7 @@ main {
 
     @include box-shadow-all;
 
-    &-title {
+    &-header {
       letter-spacing: 2px;
       padding: 0.7rem;
       color: $white;
@@ -106,7 +111,12 @@ main {
 
     &-content {
       min-height: 100px;
+      padding: 0px 0.7rem;
+    }
+
+    &-footer {
       padding: 0.7rem;
+      background-color: lighten(grey, 40%);
     }
   }
 }

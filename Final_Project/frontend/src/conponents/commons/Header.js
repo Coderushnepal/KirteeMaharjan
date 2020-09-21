@@ -1,9 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-import * as routers from "../../constants/routes";
+import * as routes from "../../constants/routes";
 
 function Header() {
+  const history = useHistory();
+
+  const handleLoginClick = () => {
+    history.push(routes.LOGIN);
+  };
+
   return (
     <div className="header-wrapper">
       <header className="header container">
@@ -14,7 +20,7 @@ function Header() {
             </Link>
           </div>
           <div className="login">
-            <button>Login</button>
+            <button onClick={handleLoginClick}>Login</button>
           </div>
         </div>
         <div className="header-bottom">
@@ -24,16 +30,16 @@ function Header() {
           <nav className="nav">
             <ul className="menu-nav">
               <li className="menu-nav__item">
-                <Link to={routers.TODAY_LOG}>Today's Log</Link>
+                <Link to={routes.TODAY_LOG}>Today's Log</Link>
               </li>
               <li className="menu-nav__item">
-                <Link to={routers.ADD_FOODS}>Foods</Link>
+                <Link to={routes.ADD_FOODS}>Foods</Link>
               </li>
               <li className="menu-nav__item">
-                <Link to={routers.STATS}>Stats</Link>
+                <Link to={routes.STATS}>Stats</Link>
               </li>
               <li className="menu-nav__item" id="nav__item-acc">
-                <Link to={routers.PROFILE}>Account</Link>
+                <Link to={routes.PROFILE}>Account</Link>
               </li>
             </ul>
           </nav>

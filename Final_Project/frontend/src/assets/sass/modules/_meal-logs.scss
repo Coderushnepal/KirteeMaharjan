@@ -1,5 +1,6 @@
 @import "../mixins/manifest";
 
+// style for DailyLogs
 .day {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -38,5 +39,79 @@
   // style for DayPicker from react day picker
   div.DayPicker-wrapper {
     padding-right: 10px;
+  }
+}
+
+//style for MealLogs
+.grid-container {
+  display: grid;
+  padding: 0.5rem 0;
+  grid-template-columns: repeat(10, 1fr);
+
+  .col-6fr {
+    grid-column: 1 / span 6;
+  }
+
+  .col-sm {
+    justify-self: center;
+    align-self: center;
+    grid-column: auto;
+  }
+}
+
+.size-sm {
+  font-size: 0.9rem;
+}
+.g-c-border {
+  border-top: 1px solid lighten($black, 50%);
+  border-bottom: 1px solid lighten($black, 50%);
+}
+
+.meal-title {
+  div.title {
+    font-weight: 500;
+    line-height: 2;
+  }
+
+  .measure {
+    font-size: 0.76rem;
+
+    span {
+      display: inline-block;
+      margin-right: 7px;
+    }
+  }
+}
+
+span.amt {
+  display: inline-block;
+  padding: 0px 7px;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.box-footer-items {
+  font-size: 0.8rem;
+}
+
+.flex-between {
+  @include flexBetween(row);
+
+  span {
+    display: inline-block;
+
+    .add {
+      display: inline-block;
+      margin-right: 12px;
+    }
+    .edit,
+    .add:visited {
+      text-decoration: underline;
+      color: blue;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }

@@ -5,7 +5,7 @@ function AddMeal() {
   return (
     <Fragment>
       <Header />
-      <div>This section will contain add meal</div>
+      <div className="container">food</div>
     </Fragment>
   );
 }

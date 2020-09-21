@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
 
 import "react-day-picker/lib/style.css";
+import { dummyLogs } from "./logDummyData";
 
+import { Loader } from "../../commons";
+import MealLog from "./Meal/MealLog";
 import DateSelect from "./DateSelect";
-import MealLog from "./MealLog";
 import StatusBoard from "./StatusBoard";
 import { Header } from "../../commons/index";
 
@@ -11,7 +13,14 @@ class DailyLog extends React.Component {
   constructor() {
     super();
     this.state = {
+      isLoading: true,
       selectedDay: new Date(),
+      logs: {
+        breakfast: [],
+        lunch: [],
+        dinner: [],
+        snacks: [],
+      },
     };
   }
 
@@ -26,9 +35,27 @@ class DailyLog extends React.Component {
     });
   };
 
-  render() {
-    const { selectedDay } = this.state;
+  componentDidMount() {
+    // you call api here
+    console.log(this.state.isLoading);
+    setTimeout(() => {
+      this.setState({
+        logs: {
+          breakfast: dummyLogs.breakfast,
+          lunch: dummyLogs.lunch,
+          dinner: dummyLogs.dinner,
+          snacks: dummyLogs.snacks,
+        },
+        isLoading: false,
+      });
+    }, 2000);
+    console.log(this.state.isLoading);
+  }
 
+  render() {
+    const { selectedDay, logs, isLoading } = this.state;
+    // console.log(dummyLogs);
+    // console.log(logs, isLoading);
     return (
       <Fragment>
         <Header />
@@ -36,12 +63,17 @@ class DailyLog extends React.Component {
           handleDayChange={this.handleDayChange}
           selectedDay={selectedDay}
         />
-
         <main className="container">
-          <MealLog mealType="Breakfast" />
-          <MealLog mealType="Launch" />
-          <MealLog mealType="Snacks" />
-          <MealLog mealType="Dinner" />
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              <MealLog mealType="Breakfast" mealList={logs.breakfast} />
+              <MealLog mealType="Launch" mealList={logs.lunch} />
+              <MealLog mealType="Snacks" mealList={logs.dinner} />
+              <MealLog mealType="Dinner" mealList={logs.snacks} />
+            </>
+          )}
         </main>
         <StatusBoard />
       </Fragment>
