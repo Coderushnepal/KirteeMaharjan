@@ -1,13 +1,10 @@
 import http from "../utils/http";
 
-export async function login(data) {
-  // const params = { offset: 0, limit: 10, query: "milk" };
-  // const result = await http.get("/foods/search", {
-  //   params,
-  // });
-  const result = await http.post("/login", { data });
-  console.log(result);
-  return result;
+export async function login(credentials) {
+  console.log(credentials);
+  const { data } = await http.post("/login", { ...credentials });
+  console.log(data);
+  return data;
 }
 
 export async function signup(data) {

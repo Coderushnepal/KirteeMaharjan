@@ -5,18 +5,6 @@ import PropTypes from "prop-types";
 
 import * as routes from "../../../../constants/routes";
 
-const data = {
-  title: "Rolls, breakfast, sweet,of refined flour",
-  measurement: 1,
-  grams: 38,
-  calories: 115,
-  protein: 3,
-  totalCarbs: 20,
-  fibre: null,
-  fat: 2,
-  saturatedFat: 2,
-};
-
 function MealLog({ mealType, mealList }) {
   const setMealTypeState = () => {
     //pass mealType of food to be added in onto state

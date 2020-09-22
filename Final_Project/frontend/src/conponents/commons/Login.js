@@ -1,102 +1,158 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { Component } from "react";
 
+import localStorageServices from "../../utils/localStorage";
+import * as toast from "../../utils/toast";
 import * as routes from "../../constants/routes";
 import { login, signup } from "../../Services/userServices";
 
-function Login() {
-  const history = useHistory();
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLogin, setIsLogin] = useState(true);
+class Login extends Component {
+  constructor() {
+    super();
 
-  const handleLogin = async () => {
-    console.log("Logging in ");
+    this.state = {
+      isStateLogin: true,
+      username: "",
+      email: "",
+      password: "",
+    };
+  }
+
+  toggleIsStateLogin = () => {
+    this.setState({
+      isStateLogin: !this.state.isStateLogin,
+    });
+  };
+
+  handleLogin = async () => {
+    const { email, password } = this.state;
+
+    if (!email || !password) {
+      toast.error({
+        title: "Invalid Credentials",
+        message: "Email and prassword must be provided",
+      });
+      console.log("Email and password cannot be blank");
+      return;
+    }
+
+    console.log("Logging in ", email, password);
     try {
-      const data = await login({ email, password });
-      console.log({ data });
-      console.log(data.message);
-      // localStorage.setItem("j-t", data.token);
+      const user = await login({ email, password });
+      console.log(user, user.message, user.data.token);
+      localStorageServices.setToken(user.data.token);
+      toast.success({
+        title: "Successfully logged in",
+        message: "",
+      });
+      this.props.history.push(routes.TODAY_LOG);
     } catch (err) {
-      console.log(err);
+      const error = err.response.data.message
+        ? err.response.data.message
+        : "Something went Wrong!";
+      toast.error({
+        title: "Oops!",
+        message: error,
+      });
     }
   };
 
-  const handleSignUp = async () => {
+  handleSignUp = async () => {
+    const { username, email, password } = this.state;
+
     try {
-      const data = await signup({ username, email, password });
-      console.log(data);
-      history.push(routes.TODAY_LOG);
+      const user = await signup({ username, email, password });
+      toast.success({
+        title: `HI ${user.username}`,
+        message: "Login to Start using app",
+      });
+      this.props.history.push(routes.LOGIN);
     } catch (err) {
-      console.log(err);
+      const error = err.response.data.message
+        ? err.response.data.message
+        : "Something went Wrong!";
+      toast.error({
+        title: "Oops!",
+        message: error,
+      });
     }
   };
 
-  const handleSubmit = (e) => {
-    console.log("Prevent!!");
+  handleSubmit = (e) => {
     e.preventDefult();
   };
 
-  return (
-    <div className="form-wrapper">
-      <div className="form" onSubmit={(e) => handleSubmit(e)}>
-        <div className="form-header">
-          <h2> Count Cals</h2>
-          <p>Login to start tracking calories</p>
-        </div>
-        <div className="form-inputs">
-          {!isLogin && (
+  handleChange = (e) => {
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  render() {
+    const { isStateLogin, username, email, password } = this.state;
+    return (
+      <div className="form-wrapper">
+        <div className="form" onSubmit={this.handleSubmit}>
+          <div className="form-header">
+            <h2> Count Cals</h2>
+            <p>Login to start tracking calories</p>
+          </div>
+          <div className="form-inputs">
+            {!isStateLogin && (
+              <div className="form-input">
+                <input
+                  type="username"
+                  placeholder=" username"
+                  value={username}
+                  onChange={this.handleChange}
+                  name="username"
+                  required
+                />
+              </div>
+            )}
             <div className="form-input">
               <input
-                type="username"
-                placeholder=" username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                type="email"
+                placeholder="email"
+                value={email}
+                name="email"
+                onChange={this.handleChange}
                 required
               />
             </div>
-          )}
-          <div className="form-input">
-            <input
-              type="email"
-              placeholder="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+            <div className="form-input">
+              <input
+                type="password"
+                placeholder="password"
+                value={password}
+                name="password"
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+            <div className="form-signup">
+              {isStateLogin ? (
+                <button onClick={this.handleLogin}>Log in</button>
+              ) : (
+                <button className="sign-up " onClick={this.handleSignUp}>
+                  SignUp
+                </button>
+              )}
+            </div>
           </div>
-          <div className="form-input">
-            <input
-              type="password"
-              placeholder="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+          <div className="login-signup">
+            {isStateLogin ? "Dont have an account yet ? " : "Click to log in "}
+            <span
+              className="login-signup-toggle"
+              onClick={this.toggleIsStateLogin}
+            >
+              {isStateLogin ? "Sign up " : "Login"}
+            </span>
           </div>
-          <div className="form-signup">
-            {isLogin ? (
-              <button onClick={handleLogin}>Log in</button>
-            ) : (
-              <button className="sign-up " onClick={handleSignUp}>
-                SignUp
-              </button>
-            )}
-          </div>
-        </div>
-        <div className="login-signup">
-          {isLogin ? "Dont have an account yet ? " : "Click to log in "}
-          <span
-            className="login-signup-toggle"
-            onClick={() => setIsLogin(!isLogin)}
-          >
-            {isLogin ? "Sign up " : "Login"}
-          </span>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Login;

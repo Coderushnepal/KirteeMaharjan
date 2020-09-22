@@ -7,15 +7,15 @@ const LocalStorageService = (function () {
     }
     return _service;
   }
-  function _setToken(tokenObj) {
-    localStorage.setItem("j-t", tokenObj.access_token);
+  function _setToken(token) {
+    localStorage.setItem("j-t", token);
   }
   function _getAccessToken() {
     return localStorage.getItem("j-t");
   }
 
-  function _clearToken() {
-    localStorage.removeItem("j-t");
+  function _clearToken(tokenKey) {
+    localStorage.removeItem(tokenKey);
   }
 
   return {

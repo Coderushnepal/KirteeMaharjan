@@ -2,9 +2,9 @@ export const HOME = "/";
 export const LOGIN = "/login";
 
 // users route
-export const TODAY_LOG = "/log";
-export const PROFILE = "/account";
-export const STATS = "/stats";
+export const TODAY_LOG = "/me/log";
+export const PROFILE = "/me/account";
+export const STATS = "/me/stats";
 
 //users food route
 export const FOODS = "/foods";

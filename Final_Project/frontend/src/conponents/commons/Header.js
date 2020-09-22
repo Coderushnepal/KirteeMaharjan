@@ -2,11 +2,13 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import * as routes from "../../constants/routes";
+import localStorageService from "../../utils/localStorage";
 
 function Header() {
   const history = useHistory();
 
-  const handleLoginClick = () => {
+  const handleLogoutClick = () => {
+    localStorageService.clearToken("j-t");
     history.push(routes.LOGIN);
   };
 
@@ -20,7 +22,7 @@ function Header() {
             </Link>
           </div>
           <div className="login">
-            <button onClick={handleLoginClick}>Login</button>
+            <button onClick={handleLogoutClick}>Log out</button>
           </div>
         </div>
         <div className="header-bottom">
