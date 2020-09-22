@@ -7,6 +7,10 @@ node_modules
 # build directory
 dist
 
+
+# knex
+/knexfile.js
+
 # log files
 *.log
 logs
