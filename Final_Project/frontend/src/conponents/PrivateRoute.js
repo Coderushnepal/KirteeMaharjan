@@ -6,7 +6,6 @@ import { Login } from "../conponents/commons";
 
 export default function PrivateRoute(props) {
   const isLoggedIn = !!localStorage.getItem("j-t");
-  console.log(localStorage.getItem("j-t"));
 
   if (isLoggedIn) {
     return <Route {...props} />;

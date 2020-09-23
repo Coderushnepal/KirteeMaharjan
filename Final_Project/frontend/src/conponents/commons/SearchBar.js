@@ -10,8 +10,11 @@ class SearchBar extends Component {
   }
 
   handleSubmit = (e) => {
+    const { setSearchText } = this.props;
     e.preventDefault();
-    this.props.setSearchText(this.state.searchFor);
+    if (!!this.state.searchFor) {
+      setSearchText(this.state.searchFor);
+    }
   };
 
   handleChange = (e) => {

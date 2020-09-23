@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 class MealItem extends React.Component {
   render() {
-    console.log(this.props, "**********");
+    // console.log(this.props, "**********");
     const { meal } = this.props;
     return (
       <div className="meal-header meal grid-container g-c-border g-c-padding">

@@ -38,7 +38,8 @@ class Login extends Component {
     console.log("Logging in ", email, password);
     try {
       const user = await login({ email, password });
-      console.log(user, user.message, user.data.token);
+
+      // console.log(user, user.message, user.data.token);
       localStorageServices.setToken(user.data.token);
       toast.success({
         title: "Successfully logged in",
@@ -46,12 +47,17 @@ class Login extends Component {
       });
       this.props.history.push(routes.TODAY_LOG);
     } catch (err) {
-      const error = err.response.data.message
-        ? err.response.data.message
-        : "Something went Wrong!";
+      // console.log(err.response, err.response.data.message);
+      let error = " something went wrong!";
+      if (err.response) {
+        if (err.response.data.message) error = err.response.data.message;
+      }
       toast.error({
         title: "Oops!",
         message: error,
+      });
+      this.setState({
+        password: "",
       });
     }
   };
@@ -61,11 +67,15 @@ class Login extends Component {
 
     try {
       const user = await signup({ username, email, password });
+      console.log(user);
       toast.success({
-        title: `HI ${user.username}`,
+        title: `Welcome ${user.data.username}`,
         message: "Login to Start using app",
       });
-      this.props.history.push(routes.LOGIN);
+      this.setState({
+        isStateLogin: true,
+        password: "",
+      });
     } catch (err) {
       const error = err.response.data.message
         ? err.response.data.message
@@ -73,6 +83,9 @@ class Login extends Component {
       toast.error({
         title: "Oops!",
         message: error,
+      });
+      this.setState({
+        password: "",
       });
     }
   };

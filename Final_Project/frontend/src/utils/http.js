@@ -1,21 +1,22 @@
 import axios from "axios";
+
+import config from "./config";
 import localStorageService from "../utils/localStorage";
 
 const http = axios.create({
-  baseURL: "http://localhost:4056",
+  baseURL: config.baseURI,
   headers: {
     "Content-type": "application/json",
   },
 });
 
 http.interceptors.request.use(
-  (config) => {
+  (req) => {
     const token = localStorageService.getAccessToken();
     if (token) {
-      config.headers["Authorization"] = "Bearer " + token;
+      req.headers["Authorization"] = "Bearer " + token;
     }
-    // config.headers['Content-Type'] = 'application/json';
-    return config;
+    return req;
   },
   (error) => {
     Promise.reject(error);

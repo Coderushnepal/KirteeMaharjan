@@ -1,4 +1,5 @@
 @import "../config";
+@import "../mixins/manifest";
 
 .search-bar {
   width: 80%;
@@ -20,5 +21,50 @@
       border-radius: 25px;
       @include box-shadow-all;
     }
+  }
+}
+
+.search-result {
+  display: flex;
+  flex-direction: column;
+  @include mq(lg) {
+    width: 50%;
+  }
+
+  &-item {
+    padding: 0.5rem 0rem;
+    border-bottom: 1px solid lighten($black, 50%);
+
+    @include box-shadow-bottom;
+  }
+}
+
+.search-result-item {
+  &__title {
+    color: map-get($blue-colors, blue-d1);
+    line-height: 2.7;
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+      color: darken(map-get($blue-colors, blue-d1), 30%);
+    }
+  }
+
+  &__measure,
+  &__nutrition {
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: $font-family-quicksand;
+    span {
+      margin-right: 12px;
+    }
+  }
+
+  &__measure {
+    margin-bottom: 5px;
+  }
+
+  &__nutrition {
   }
 }
