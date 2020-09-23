@@ -9,6 +9,34 @@ const CREATE_USER_SCHEMA = joi
   })
   .min(0);
 
+const VALIDATE_LOGIN_SCHEMA = joi
+  .object()
+  .keys({
+    email: joi.string().max(100).email().required(),
+    password: joi.string().max(100).required()
+  })
+  .required();
+
+const CREATE_USER_GOALS = joi
+  .object()
+  .keys({
+    calories: joi.number().min(0).required(),
+    fat: joi.number().min(0).required(),
+    protein: joi.number().min(0).required(),
+    carbs: joi.number().min(0).required()
+  })
+  .required();
+
+const UPDATE_USER_GOALS = joi
+  .object()
+  .keys({
+    calories: joi.number().min(0),
+    fat: joi.number().min(0),
+    protein: joi.number().min(0),
+    carbs: joi.number().min(0)
+  })
+  .min(1);
+
 export const validateUserCreation = (req, res, next) => {
   try {
     joi.assert(res.body, CREATE_USER_SCHEMA);
@@ -19,14 +47,6 @@ export const validateUserCreation = (req, res, next) => {
   }
 };
 
-const VALIDATE_LOGIN_SCHEMA = joi
-  .object()
-  .keys({
-    email: joi.string().max(100).email().required(),
-    password: joi.string().max(100).required()
-  })
-  .required();
-
 export function validateUserLogin(req, res, next) {
   console.log('validating');
   try {
@@ -36,3 +56,20 @@ export function validateUserLogin(req, res, next) {
     next(err);
   }
 }
+
+export const validateUserGoalCreation = (req, res, next) => {
+  try {
+    joi.assert(req.body, CREATE_USER_GOALS);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+export const validateUserGoalUpdate = (req, res, next) => {
+  try {
+    joi.assert(req.body, UPDATE_USER_GOALS);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};

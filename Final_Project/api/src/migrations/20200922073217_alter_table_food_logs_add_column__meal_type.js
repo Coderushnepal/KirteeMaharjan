@@ -14,5 +14,7 @@ export function up(knex) {
  * @param {object} knex
  */
 export function down(knex) {
-  return knex.schema.dropColumn('meal_types');
+  return knex.schema.table('user_logs', function (table) {
+    table.dropColumn('meal_type');
+  });
 }

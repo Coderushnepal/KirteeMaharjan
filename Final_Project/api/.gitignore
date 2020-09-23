@@ -15,3 +15,6 @@ dist
 *.log
 logs
 
+miscellenous
+/formeals
+

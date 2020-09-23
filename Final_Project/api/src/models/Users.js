@@ -16,11 +16,20 @@ export async function CreateUser(payload) {
   return camelize(restult);
 }
 
+/**
+ *
+ * @param {string} email
+ */
 export async function getByEmail(email) {
   const [result] = await connection.select('*').from(TABLE).where({ email, is_active: true });
   return result ? camelize(result) : null;
 }
 
+/**
+ *
+ * @param {integer} id
+ */
 export async function remove(id) {
-  await connection(TABLE).update({ is_active: false }).where({ id });
+  const [data] = await connection(TABLE).update({ is_active: false }).where({ id }).returning('*');
+  return data;
 }
