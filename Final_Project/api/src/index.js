@@ -8,7 +8,7 @@ import router from './routes';
 import genericErrorHandler from './middlewares/genericErrorHandler';
 import logger from './utils/logger';
 
-const PORT = process.env.PORT || 4056;
+const PORT = process.env.PORT || 3056;
 
 const app = express();
 
