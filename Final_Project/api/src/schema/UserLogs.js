@@ -8,7 +8,7 @@ const ADD_FOOD_SCHEMA = joi
     servings: joi.number().min(1),
     measurement: joi.string().required(),
     grams: joi.number().required(),
-    mealType: joi.number(),
+    mealType: joi.number().valid(1, 2, 3, 4),
     loggedDate: joi.string().required()
   })
   .or('foodId', 'mealId')

@@ -8,6 +8,8 @@ import router from './routes';
 import genericErrorHandler from './middlewares/genericErrorHandler';
 import logger from './utils/logger';
 
+const PORT = process.env.PORT || 4056;
+
 const app = express();
 
 function loggingMiddleware(req, res, next) {
@@ -24,6 +26,6 @@ app.use(morgan('tiny'));
 app.use(router);
 app.use(genericErrorHandler);
 
-app.listen(process.env.PORT, function () {
-  console.log(`Listining on port ${process.env.PORT}`);
+app.listen(PORT, function () {
+  console.log(`Listining on port ${PORT}`);
 });

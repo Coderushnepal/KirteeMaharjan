@@ -2,6 +2,19 @@ import url from 'url';
 import * as UserLogServices from '../services/userLogs';
 
 /**
+ * Get food log by id
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+export async function getLogById(req, res, next) {
+  await UserLogServices.getLogById(+req.params.id)
+    .then(data => res.json(data))
+    .catch(err => next(err));
+}
+
+/**
  * Get foods by meal type for a particular day
  *
  * @param {*} req

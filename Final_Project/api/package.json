@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --watch src/ --exec babel-node src/",
+     "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon --watch src/ --exec babel-node src/",
+    "start": "node dist/index.js",
     "build": "rimraf dist && babel src/ --copy-files --out-dir dist",
     "migrate:make": "knex migrate:make --knexfile src/knexfile.js",
     "migrate": "knex migrate:latest --knexfile src/knexfile.js",

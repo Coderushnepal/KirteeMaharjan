@@ -39,6 +39,7 @@ router.get('/users/goals/', authenticate, UserController.getGoal);
 // user logs api
 
 router.get('/users/logs/', authenticate, LogControllers.getByMealType);
+router.get('/users/logs/:id', authenticate, LogControllers.getLogById);
 router.post('/users/logs', authenticate, validateAddFoodToLog, LogControllers.addLog);
 router.put('/users/logs/:id', authenticate, validateUpdateFoodToLog, LogControllers.updateLog);
 router.delete('/users/logs/:id', authenticate, LogControllers.deleteLog);

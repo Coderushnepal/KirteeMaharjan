@@ -1,6 +1,7 @@
 export const FETCH_LOGS_BY_MEAL_TYPE = (userId, date, mealTypeId) => {
   return `Select  
   ul.id, 
+  f.title,
   ul.food_id, 
   ul.servings, 
   ul.measurement, 
@@ -19,6 +20,6 @@ export const FETCH_LOGS_BY_MEAL_TYPE = (userId, date, mealTypeId) => {
   FROM user_logs ul
     LEFT JOIN  foods f
       ON ul.food_id = f.id
-  where ul.user_id = ? and logged_date = ? and meal_type=? and is_active = true
-  GROUP BY ul.meal_type,ul.id`;
+  where ul.user_id = ? and logged_date = ? and meal_type=? 
+  GROUP BY ul.meal_type,ul.id,f.title`;
 };

@@ -10,6 +10,25 @@ import {
 } from '../models/UserLogs';
 
 /**
+ * fetch food log by id
+ *
+ * @param {integer} id
+ */
+export async function getFoodLogById(id) {
+  logger.info(`Fetching log with id ${id}`);
+
+  const data = await getById(id);
+  if (!data) {
+    throw new BadRequestError(`Food with id ${id} does not exits in log`);
+  }
+
+  return {
+    data: data,
+    message: `Food with id ${id}`
+  };
+}
+
+/**
  * Get food by meal type for a particular day
  *
  * @param {integer} userId
