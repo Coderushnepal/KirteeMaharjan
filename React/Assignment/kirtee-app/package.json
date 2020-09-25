@@ -1,7 +1,6 @@
 {
-  "name": "kirtee-app",
+  "name": "diet-tracker",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -42,5 +41,9 @@
   },
   "devDependencies": {
     "redux-logger": "^3.0.6"
-  }
+  },
+  "description": "A simple api for calorie counter app",
+  "main": "index.js",
+  "author": "Kirtee",
+  "license": "MIT"
 }
