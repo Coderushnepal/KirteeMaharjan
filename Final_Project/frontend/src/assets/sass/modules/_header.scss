@@ -1,7 +1,7 @@
 @import "../config";
 @import "../mixins/transition";
 
-.login {
+.logout {
   button {
     background-color: lighten($orange, 6%);
     border: 1px solid darken($orange, 10%);

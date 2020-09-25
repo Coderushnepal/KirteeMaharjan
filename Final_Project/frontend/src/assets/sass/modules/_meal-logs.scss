@@ -1,4 +1,5 @@
 @import "../mixins/manifest";
+@import "../config";
 
 // style for DailyLogs
 .day {
@@ -35,10 +36,31 @@
   border-radius: 5px;
   position: absolute;
   z-index: 1;
+  left: -232px;
+
+  @include mq(md) {
+    left: 0;
+  }
 
   // style for DayPicker from react day picker
   div.DayPicker-wrapper {
     padding-right: 10px;
+  }
+}
+
+.today {
+  padding: 10px;
+  color: black;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border: 1px solid darken($orange, 5%);
+  background-color: lighten($orange, 5%);
+
+  &:hover {
+    cursor: pointer;
+    border-color: darken($orange, 15%);
+    background-color: $orange;
   }
 }
 

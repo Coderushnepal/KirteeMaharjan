@@ -1,10 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { withNutritionConvertor } from "../../../Hoc";
 
 class MealItem extends React.Component {
+  stripNull = (value) => {
+    if (!value) return "-";
+    else return value + "g";
+  };
+
   render() {
     // console.log(this.props, "**********");
-    const { meal } = this.props;
+    const { meal, Converter } = this.props;
+    const { originalFoodDatas } = meal;
+    const ogFoodDatas = originalFoodDatas[0];
+    // console.log(originalFoodDatas[0]);
+    let convertedNutrients = Converter(
+      ogFoodDatas.grams,
+      meal.grams,
+      ogFoodDatas.nutritionInfo
+    );
+    // console.log(convertedNutrients);
     return (
       <div className="meal-header meal grid-container g-c-border g-c-padding">
         <div className=" meal-title col-6fr">
@@ -18,10 +33,16 @@ class MealItem extends React.Component {
             </span>
           </div>
         </div>
-        <div className="col-sm size-sm">{meal.calories}</div>
-        <div className="col-sm size-sm">{meal.protein}g</div>
-        <div className="col-sm size-sm">{meal.fat}g</div>
-        <div className="col-sm size-sm">{meal.totalCarbs}g</div>
+        <div className="col-sm size-sm">{convertedNutrients.calories}</div>
+        <div className="col-sm size-sm">
+          {this.stripNull(convertedNutrients.protein)}
+        </div>
+        <div className="col-sm size-sm">
+          {this.stripNull(convertedNutrients.fat)}
+        </div>
+        <div className="col-sm size-sm">
+          {this.stripNull(convertedNutrients.carbs)}
+        </div>
       </div>
     );
   }
@@ -29,6 +50,7 @@ class MealItem extends React.Component {
 
 MealItem.propTypes = {
   meal: PropTypes.object,
+  mealType: PropTypes.string,
 };
 
-export default MealItem;
+export default withNutritionConvertor(MealItem);

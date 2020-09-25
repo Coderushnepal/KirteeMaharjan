@@ -28,7 +28,7 @@ class SearchBar extends Component {
       <form className="search-bar" onSubmit={this.handleSubmit}>
         <input
           type="text"
-          placeholder="search food here"
+          placeholder={this.props.placeholder}
           onChange={this.handleChange}
           value={this.state.searchFor}
         />

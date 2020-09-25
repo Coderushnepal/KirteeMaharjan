@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Login } from "./commons";
-import { FourOhFour } from "./commons";
 import userRoutes from "./userRoutes";
 import history from "../utils/history";
 import PrivateRoute from "./PrivateRoute";
@@ -13,8 +12,9 @@ const AppRouter = () => {
     <BrowserRouter history={history}>
       <Switch>
         <Route path={routes.LOGIN} component={Login} />
+        <Route path={routes.HOME} component={userRoutes} />
         <PrivateRoute path={routes.HOME} component={userRoutes} />
-        <Route path={"*"} component={FourOhFour} />
+        {/* <Route path={"*"} component={FourOhFour} /> */}
       </Switch>
     </BrowserRouter>
   );

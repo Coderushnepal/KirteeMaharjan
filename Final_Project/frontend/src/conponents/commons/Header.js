@@ -21,8 +21,10 @@ function Header() {
               <span className="logo-text">Count Cals</span>
             </Link>
           </div>
-          <div className="login">
-            <button onClick={handleLogoutClick}>Log out</button>
+          <div className="logout">
+            <button className="button--orange" onClick={handleLogoutClick}>
+              Log out
+            </button>
           </div>
         </div>
         <div className="header-bottom">
@@ -38,7 +40,7 @@ function Header() {
                 <Link to={routes.ADD_FOODS}>Foods</Link>
               </li>
               <li className="menu-nav__item">
-                <Link to={routes.STATS}>Stats</Link>
+                {/* <Link to={routes.STATS}>Stats</Link> */}
               </li>
               <li className="menu-nav__item" id="nav__item-acc">
                 <Link to={routes.PROFILE}>Account</Link>

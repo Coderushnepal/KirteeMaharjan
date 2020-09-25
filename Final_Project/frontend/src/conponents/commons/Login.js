@@ -67,7 +67,7 @@ class Login extends Component {
 
     try {
       const user = await signup({ username, email, password });
-      console.log(user);
+      // console.log(user);
       toast.success({
         title: `Welcome ${user.data.username}`,
         message: "Login to Start using app",

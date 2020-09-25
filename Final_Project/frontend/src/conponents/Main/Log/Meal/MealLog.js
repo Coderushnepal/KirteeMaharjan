@@ -30,7 +30,9 @@ function MealLog({ mealType, mealList }) {
             <Fragment>
               {mealList.map((meal) => {
                 // console.log("meal", meal);
-                return <MealItem key={meal.title} meal={meal} />;
+                return (
+                  <MealItem key={meal.title} mealType={mealType} meal={meal} />
+                );
               })}
             </Fragment>
           )}

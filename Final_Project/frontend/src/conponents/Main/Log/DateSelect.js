@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import DayPicker from "react-day-picker";
 
+import { dateActions } from "../../../actions";
 class DateSelect extends React.Component {
   constructor() {
     super();
@@ -30,6 +33,12 @@ class DateSelect extends React.Component {
     let newDay = this.props.selectedDay;
     newDay.setDate(newDay.getDate() + 1);
     this.props.handleDayChange(newDay);
+  };
+
+  handleClickToday = () => {
+    console.log("hoo");
+    this.props.ResetDate();
+    this.props.handleDayChange();
   };
 
   // not working
@@ -82,7 +91,7 @@ class DateSelect extends React.Component {
             onClick={this.handleChangeToTomorrow}
           ></i>{" "}
         </div>
-        <div>
+        <div style={{ position: "relative" }}>
           <i
             className="fa fa-calendar"
             aria-hidden="true"
@@ -98,6 +107,11 @@ class DateSelect extends React.Component {
             />
           </div>
         </div>
+        <div>
+          <button className="today" onClick={this.handleClickToday}>
+            Today
+          </button>
+        </div>
       </div>
     );
   }
@@ -108,4 +122,10 @@ DateSelect.propTypes = {
   selectedDay: PropTypes.object.isRequired,
 };
 
-export default DateSelect;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ...bindActionCreators({ ...dateActions }, dispatch),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(DateSelect);
